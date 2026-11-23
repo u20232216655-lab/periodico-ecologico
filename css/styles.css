@@ -2779,3 +2779,75 @@ select:focus-visible {
         padding: 18px;
     }
 }
+
+
+/* =====================================================
+   CORRECCIÓN DE CONTRASTE — TEXTOS SOBRE FONDOS CLAROS
+   Sobrescribe colores heredados del tema oscuro original.
+===================================================== */
+
+.calculator-section .section-heading h2 {
+    color: var(--editorial-ink);
+}
+
+.calculator-section .section-description {
+    color: #59695d;
+}
+
+.calculator-section .section-label {
+    color: var(--editorial-green);
+}
+
+.calculator-section .section-label::before {
+    background: var(--editorial-lime);
+}
+
+.debate-section .section-heading h2,
+.bug-section .section-heading h2,
+.cifra-section .section-heading h2,
+.story-section .section-heading h2,
+.closing-section .section-heading h2,
+.report-section .section-heading h2,
+.ai-section .section-heading h2,
+#voces .section-heading h2 {
+    color: var(--editorial-ink);
+}
+
+.debate-section .section-description,
+.bug-section .section-description,
+.cifra-section .section-description,
+.story-section .section-description,
+.closing-section .section-description,
+.report-section .section-description,
+.ai-section .section-description,
+#voces .section-heading p {
+    color: #59695d;
+}
+
+/* Mantener los textos blancos únicamente en el bloque oscuro RAEE TRACK. */
+.impact-section .section-heading h2,
+.impact-section .section-description,
+.impact-section .section-label {
+    color: #fff;
+}
+
+.story-stat,
+.story-stat strong,
+.story-stat p {
+    color: #fff;
+}
+
+.story-stat .story-stat-number {
+    color: var(--editorial-lime);
+}
+
+.references h3,
+.ai-disclosure h3,
+.credits-card h3,
+.references li,
+.references a,
+.ai-disclosure p,
+.credits-card strong,
+.credits-card span {
+    color: var(--editorial-ink);
+}
