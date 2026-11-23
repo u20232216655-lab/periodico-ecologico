@@ -769,3 +769,74 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     .calculator-form, .calculator-results { padding: 22px; }
     .bug-header, .bug-footer { align-items: flex-start; flex-direction: column; }
 }
+
+/* =========================================================
+   AJUSTES DE INTERACCIÓN Y NAVEGACIÓN
+   Menú accesible con control propio, sin depender del dropdown UIkit
+   ========================================================= */
+.site-header .uk-navbar-right { position: relative; }
+.site-header .menu-toggle {
+    display: inline-flex !important;
+    width: 44px;
+    height: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--green);
+    color: #fff !important;
+}
+.site-header .menu-toggle:hover,
+.site-header .menu-toggle:focus-visible {
+    background: var(--green-deep);
+    color: var(--lime) !important;
+}
+.site-header .nav-dropdown {
+    position: absolute !important;
+    top: calc(100% + 15px);
+    right: 0;
+    left: auto;
+    z-index: 1100;
+    display: none !important;
+    width: min(460px, calc(100vw - 36px));
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 18px 48px rgba(16, 45, 32, .16);
+}
+.site-header .nav-dropdown.is-open { display: block !important; }
+.site-header .nav-dropdown .uk-navbar-dropdown-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2px 12px;
+}
+.site-header .nav-dropdown li a {
+    display: block;
+    padding: 11px 10px;
+    border-bottom: 1px solid #edf0e9;
+    color: var(--ink);
+    font-size: .82rem;
+    font-weight: 600;
+    white-space: normal;
+}
+.site-header .nav-dropdown li a:hover {
+    border-radius: 3px;
+    background: var(--green-soft);
+    color: var(--green);
+}
+@media (max-width: 640px) {
+    .site-header .nav-dropdown {
+        top: calc(100% + 12px);
+        right: -2px;
+        width: min(390px, calc(100vw - 36px));
+        max-height: min(70vh, 520px);
+        overflow-y: auto;
+    }
+}
+@media (max-width: 390px) {
+    .site-header .nav-dropdown .uk-navbar-dropdown-nav { grid-template-columns: 1fr; }
+}
