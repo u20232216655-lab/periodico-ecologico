@@ -673,13 +673,50 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); }
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 28px;
-    background: var(--green);
-    color: white;
+    align-items: flex-start;
+    min-width: 0;
+    padding: clamp(22px, 3vw, 34px);
+    border: 1px solid #e2e8dc;
+    border-top: 4px solid var(--lime-dark);
+    background: #f3f5ed;
+    color: var(--ink);
 }
-.story-stat-number { color: var(--lime); font-family: var(--serif); font-size: clamp(3rem, 6vw, 4.8rem); line-height: 1; }
-.story-stat strong { margin-top: 13px; color: white; }
-.story-stat p { margin-bottom: 0; color: rgba(255,255,255,.75); font-size: .8rem; }
+.story-stat-kicker {
+    color: var(--green);
+    font-family: var(--display);
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+}
+.story-stat-number {
+    margin: 17px 0 8px;
+    color: var(--green-deep);
+    font-family: var(--serif);
+    font-size: clamp(3.2rem, 5.5vw, 4.7rem);
+    line-height: .98;
+    letter-spacing: -.045em;
+}
+.story-stat strong {
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.02rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .035em;
+}
+.story-stat-rule {
+    width: 46px;
+    height: 2px;
+    margin: 22px 0 14px;
+    background: var(--lime-dark);
+}
+.story-stat p {
+    max-width: 220px;
+    margin: 0;
+    color: #657168;
+    font-size: .78rem;
+    line-height: 1.65;
+}
 
 /* Cierre y fuentes */
 .closing-section { background: #fff; }
