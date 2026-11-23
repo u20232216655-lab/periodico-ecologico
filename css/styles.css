@@ -1480,3 +1480,62 @@ button:disabled { cursor: not-allowed; opacity: .6; }
         padding: 21px 17px;
     }
 }
+
+
+/* Identidad ECOBYTE: emblema vectorial hoja + circuito */
+.site-header .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+    color: var(--ink) !important;
+    text-decoration: none;
+}
+.site-header .logo-mark {
+    display: block;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    overflow: visible;
+}
+.logo-mark-bg { fill: var(--green); }
+.logo-leaf {
+    fill: var(--lime);
+    stroke: var(--lime);
+    stroke-width: .8;
+    stroke-linejoin: round;
+}
+.logo-vein {
+    fill: none;
+    stroke: var(--green-deep);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+}
+.logo-circuit {
+    fill: none;
+    stroke: #f4f3ec;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.logo-node { fill: var(--lime); stroke: var(--green); stroke-width: 1; }
+.site-header .logo-word {
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.42rem;
+    font-weight: 700;
+    letter-spacing: -.065em;
+    line-height: 1;
+}
+.site-header .logo-point { color: #8ba936; }
+.site-header .logo:hover .logo-mark-bg { fill: var(--green-deep); }
+.site-header .logo:hover .logo-mark { transform: translateY(-1px); }
+.site-header .logo-mark { transition: transform .2s ease; }
+@media (max-width: 420px) {
+    .site-header .logo { gap: 8px; }
+    .site-header .logo-mark { width: 39px; height: 39px; flex-basis: 39px; }
+    .site-header .logo-word { font-size: 1.22rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .site-header .logo-mark { transition: none; }
+}
