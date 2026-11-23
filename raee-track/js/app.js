@@ -24,7 +24,14 @@ function loadDevices() {
       const rawQuantity = Number(item.quantity);
       const quantity = Number.isFinite(rawQuantity) ? Math.min(9999, Math.max(1, Math.floor(rawQuantity))) : 1;
       const rawDate = String(item.date ?? '');
-      const date = /^\\d{4}-\\d{2}-\\d{2}$/.test(rawDate) ? rawDate : getLocalDateString();
+      const dateParts = rawDate.split('-');
+      const validDate = dateParts.length === 3 &&
+        dateParts[0].length === 4 &&
+        dateParts[1].length === 2 &&
+        dateParts[2].length === 2 &&
+        Number(dateParts[1]) >= 1 && Number(dateParts[1]) <= 12 &&
+        Number(dateParts[2]) >= 1 && Number(dateParts[2]) <= 31;
+      const date = validDate ? rawDate : getLocalDateString();
       return {
         id: String(item.id ?? `legacy-${Date.now()}-${index}`).slice(0, 100),
         device: String(item.device ?? 'Dispositivo sin nombre').slice(0, 100),
