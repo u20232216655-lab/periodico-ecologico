@@ -2856,3 +2856,72 @@ button:disabled { cursor: not-allowed; opacity: .6; }
         padding-bottom: 4mm !important;
     }
 }
+
+
+/* ECOBYTE PDF — corregir contraste y flujo de la proyección RAEE TRACK */
+@media print {
+    /* La regla general de .impact-section pintaba TODOS sus descendientes
+       de blanco; eso dejaba invisible la hoja de ruta sobre sus tarjetas claras. */
+    body #noticia-impacto .project-roadmap,
+    body #noticia-impacto .project-roadmap .roadmap-heading,
+    body #noticia-impacto .project-roadmap .roadmap-heading h3,
+    body #noticia-impacto .project-roadmap .roadmap-heading p,
+    body #noticia-impacto .project-roadmap .roadmap-step,
+    body #noticia-impacto .project-roadmap .roadmap-step h4,
+    body #noticia-impacto .project-roadmap .roadmap-step p,
+    body #noticia-impacto .project-roadmap .roadmap-step small,
+    body #noticia-impacto .project-roadmap .roadmap-step-number {
+        color: #17271e !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    body #noticia-impacto .project-roadmap {
+        background: #ffffff !important;
+        border-color: #d9e0d4 !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-eyebrow,
+    body #noticia-impacto .project-roadmap .roadmap-status {
+        color: #174b35 !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-step {
+        background: #f4f3ec !important;
+        border-color: #d9e0d4 !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-current {
+        background: #e4eee4 !important;
+        border-top-color: #174b35 !important;
+    }
+
+    /* La nota final conserva su bloque verde y su contraste original. */
+    body #noticia-impacto .project-roadmap .roadmap-note {
+        background: #103525 !important;
+        color: #ffffff !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-note strong {
+        color: #c7e36a !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-note p {
+        color: #ffffff !important;
+    }
+
+    /* Evitar que la cuadrícula de tres columnas fragmente mal en A4. */
+    body #noticia-impacto .project-roadmap .roadmap-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 3mm !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-heading {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-step {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    body #noticia-impacto .project-roadmap .roadmap-step-number {
+        color: #174b35 !important;
+    }
+}
