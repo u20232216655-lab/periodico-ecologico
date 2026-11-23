@@ -2495,3 +2495,124 @@ button:disabled { cursor: not-allowed; opacity: .6; }
 
     p, li { orphans: 3; widows: 3; }
 }
+
+
+/* ECOBYTE PDF — AJUSTE DE FLUJO, CORTES Y COLOR (segunda pasada) */
+@media print {
+    /* No forzar una página nueva para cada sección: dejar que el periódico fluya. */
+    #ia-carrera,
+    #voces,
+    #debate,
+    #noticia-impacto,
+    #bug-mes,
+    #interactivo,
+    #historia,
+    #cierre {
+        break-before: auto !important;
+        page-break-before: auto !important;
+    }
+
+    /* La portada ocupa una página; el reportaje inicia la siguiente. */
+    #inicio {
+        break-after: page !important;
+        page-break-after: always !important;
+    }
+    #reportaje {
+        break-before: page !important;
+        page-break-before: always !important;
+    }
+
+    /* Reducir espacios verticales que generan páginas casi vacías. */
+    .section {
+        padding-top: 5mm !important;
+        padding-bottom: 5mm !important;
+    }
+    .section-heading {
+        margin-bottom: 4mm !important;
+    }
+    .section-heading h2 {
+        font-size: 22pt !important;
+    }
+
+    /* No mantener tarjetas grandes enteras si deben continuar en otra página. */
+    .info-card,
+    .voice-card,
+    .interview-card,
+    .debate-card,
+    .bug-card,
+    .cifra-card,
+    .chart-container,
+    .calculator-card,
+    .story-card,
+    .credits-card,
+    .project-roadmap,
+    .roadmap-step {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+    }
+
+    /* Evitar cortes solo en unidades pequeñas y títulos con su contenido inmediato. */
+    .section-heading,
+    .debate-author,
+    .hero-stat,
+    .fact-card,
+    .journey-step,
+    .campaign-actions article {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    h2, h3, h4 {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+
+    .voices-grid,
+    .debate-position,
+    .calculator-card,
+    .impact-card {
+        align-items: start !important;
+    }
+
+    /* Reforzar impresión de fondos y elementos coloreados en todo el documento. */
+    *,
+    *::before,
+    *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .impact-section,
+    .impact-card,
+    .calculator-results,
+    .campaign-feature,
+    .campaign-actions,
+    .campaign-topline,
+    .campaign-footer,
+    .journey-final,
+    .info-number,
+    .edition-label,
+    .hero-floating-stat,
+    .article-inline-stat,
+    .article-quote,
+    .bug-details,
+    .category-info,
+    .fact-card {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Permitir que las fotografías se reduzcan sin empujar bloques completos. */
+    img {
+        max-width: 100% !important;
+        height: auto;
+    }
+    .hero-visual img { height: 112mm !important; }
+    .voice-image { height: 48mm !important; }
+    .impact-visual img { max-height: 65mm !important; }
+
+    /* Evitar que una tarjeta completa de créditos o campaña quede desplazada. */
+    .campaign-feature { margin-bottom: 5mm !important; }
+    .campaign-main { gap: 5mm !important; }
+    .references { overflow-wrap: anywhere; }
+}
