@@ -127,7 +127,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     [phonesInput, computersInput, tabletsInput].forEach(input => {
-        input?.addEventListener("input", calculateImpact);
+        input?.addEventListener("input", () => {
+            if (input && input.value.trim() !== "") {
+                const safeQuantity = getSafeQuantity(input);
+                if (Number(input.value) !== safeQuantity) input.value = String(safeQuantity);
+            }
+            calculateImpact();
+        });
         input?.addEventListener("change", () => {
             if (input) input.value = String(getSafeQuantity(input));
             calculateImpact();
