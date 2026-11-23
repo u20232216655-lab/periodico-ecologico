@@ -38,6 +38,8 @@
 
 <body>
 
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
     <!-- ==========================================
          NAVEGACIÓN
     =========================================== -->
@@ -95,10 +97,11 @@
 
             </div>
         </nav>
+        <div class="reading-progress" aria-hidden="true"><span id="readingProgressBar"></span></div>
     </header>
 
 
-    <main>
+    <main id="contenido">
 
         <!-- ==========================================
              1. PORTADA
@@ -1055,6 +1058,12 @@
 
                 </div>
 
+                <div class="calculator-meter" aria-label="Porcentaje potencial de reutilización">
+                    <div class="calculator-meter-head"><span>Potencial de aprovechamiento estimado</span><strong id="reuseMeterLabel">30%</strong></div>
+                    <div class="calculator-meter-track" role="meter" aria-label="Porcentaje potencial de reutilización" aria-valuemin="0" aria-valuemax="100" aria-valuenow="30" id="reuseMeter"><span id="reuseMeterFill"></span></div>
+                    <p id="calculatorBreakdown" class="calculator-breakdown">Aún no has agregado dispositivos.</p>
+                </div>
+
                 <p class="calculator-disclaimer">
                     Esta herramienta es educativa. Los pesos son estimaciones
                     aproximadas y no representan mediciones reales ni una
@@ -1366,5 +1375,6 @@
 
     </footer>
 
+<button class="back-to-top" id="backToTop" type="button" aria-label="Volver al inicio" title="Volver al inicio">↑</button>
 </body>
 </html>
