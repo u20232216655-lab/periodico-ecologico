@@ -413,12 +413,27 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); }
     line-height: 1.6;
 }
 .article-quote {
+    position: sticky;
+    top: 112px;
     align-self: start;
     margin: 10px 0 0;
-    padding: 28px;
+    padding: 30px 28px;
     border-left: 4px solid var(--lime-dark);
     background: var(--green-soft);
+    box-shadow: 0 14px 34px rgba(23, 39, 30, .06);
 }
+.article-quote::before {
+    content: "APUNTE EDITORIAL";
+    display: block;
+    margin-bottom: 18px;
+    color: var(--green);
+    font-family: var(--display);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+}
+.article-quote p { max-width: 390px; }
+.article-quote cite { display: block; margin-top: 18px; }
 .article-quote p {
     margin: 0 0 15px;
     color: var(--green-deep);
