@@ -1854,6 +1854,21 @@ button:disabled { cursor: not-allowed; opacity: .6; }
 }
 .journey-steps > .journey-step:nth-child(2) { background: #c9dfbd !important; }
 .journey-steps > .journey-step:nth-child(3) { background: #b5d3a6 !important; }
+.journey-steps > .journey-step.journey-final {
+    border-color: rgba(23,75,53,.35) !important;
+    background: #103525 !important;
+}
+.journey-steps > .journey-step.journey-final h4 { color: #ffffff !important; }
+.journey-steps > .journey-step.journey-final p { color: rgba(255,255,255,.86) !important; }
+.journey-steps > .journey-step.journey-final .journey-number { color: rgba(255,255,255,.72) !important; }
+.journey-steps > .journey-step.journey-final .journey-action {
+    border-color: rgba(255,255,255,.28) !important;
+    color: #c7e36a !important;
+}
+.journey-steps > .journey-step.journey-final .journey-symbol {
+    background: rgba(199,227,106,.18) !important;
+    color: #c7e36a !important;
+}
 .journey-number {
     color: #84917f;
     font-family: var(--display);
