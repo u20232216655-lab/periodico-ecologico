@@ -2616,3 +2616,136 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     .campaign-main { gap: 5mm !important; }
     .references { overflow-wrap: anywhere; }
 }
+
+
+/* ECOBYTE PDF — correcciones finales de UIkit, flujo y elementos gráficos */
+@media print {
+    /* Evita el salto duplicado entre portada y reportaje. */
+    #reportaje {
+        break-before: auto !important;
+        page-break-before: auto !important;
+    }
+
+    /* UIkit 3 aplica fondos transparentes y texto negro al imprimir.
+       Estas reglas específicas recuperan la identidad visual editorial. */
+    body .hero-section,
+    body .raee-journey,
+    body .journey-step,
+    body .article-quote,
+    body .fact-card,
+    body .info-card,
+    body .voice-card,
+    body .interview-card,
+    body .debate-card,
+    body .bug-card,
+    body .cifra-card,
+    body .chart-container,
+    body .calculator-card,
+    body .calculator-form,
+    body .calculator-results,
+    body .story-card,
+    body .credits-card,
+    body .project-roadmap,
+    body .roadmap-step {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color: #17271e !important;
+    }
+
+    body .hero-section { background: #f4f3ec !important; }
+    body .raee-journey { background: #e9eee5 !important; }
+    body .journey-step { background: #fff !important; }
+    body .article-quote { background: #e4eee4 !important; }
+    body .fact-card,
+    body .info-card,
+    body .voice-card,
+    body .interview-card,
+    body .debate-card,
+    body .bug-card,
+    body .chart-container,
+    body .calculator-card,
+    body .calculator-form,
+    body .calculator-results,
+    body .story-card,
+    body .credits-card,
+    body .project-roadmap,
+    body .roadmap-step { background: #fff !important; }
+    body .cifra-card { background: #f4f3ec !important; }
+
+    body .impact-section,
+    body .campaign-feature {
+        background: #103525 !important;
+        color: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    body .impact-section *,
+    body .campaign-feature *,
+    body .campaign-actions,
+    body .campaign-actions * {
+        color: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+    body .impact-section .section-heading h2,
+    body .impact-section .section-description,
+    body .impact-section .section-label,
+    body .campaign-feature .campaign-kicker,
+    body .campaign-feature .campaign-actions article > span {
+        color: #fff !important;
+    }
+    body .impact-section .section-label::before,
+    body .campaign-feature .campaign-actions article > span {
+        color: #c7e36a !important;
+        background-color: #c7e36a !important;
+    }
+    body .hero-floating-stat {
+        background: #c7e36a !important;
+        color: #17271e !important;
+    }
+    body .hero-floating-stat *,
+    body .hero-stat *,
+    body .info-number {
+        color: #17271e !important;
+    }
+
+    /* Permite que los bloques largos fluyan entre páginas sin dejar huecos. */
+    .raee-journey,
+    .campaign-feature,
+    .campaign-main,
+    .campaign-actions,
+    .chart-container,
+    .calculator-card {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+    }
+    .journey-step,
+    .campaign-actions article,
+    .fact-card,
+    .debate-author {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Chart.js utiliza el tamaño del contenedor para dibujar el canvas. */
+    .chart-container { width: 100% !important; }
+    .chart-wrapper {
+        position: relative !important;
+        width: 100% !important;
+        height: 72mm !important;
+        min-height: 72mm !important;
+        max-height: 72mm !important;
+        overflow: visible !important;
+    }
+    .chart-wrapper canvas {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 72mm !important;
+    }
+
+    /* Los enlaces se mantienen identificables en el documento impreso. */
+    a[href^="http"] {
+        overflow-wrap: anywhere !important;
+    }
+}
