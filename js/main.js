@@ -347,6 +347,33 @@ document.addEventListener("DOMContentLoaded", () => {
         editorialSections.forEach(section => sectionObserver.observe(section));
     }
 
+
+    // 5. ANIMACIONES DE ENTRADA AL DESPLAZARSE
+    const revealTargets = document.querySelectorAll([
+        ".section-heading",".article-visual",".article-quote",".fact-card",".journey-step",
+        ".info-card",".voice-card",".debate-card",".impact-card",".bug-card",".cifra-card",
+        ".calculator-card",".story-card",".campaign-feature",".credits-card"
+    ].join(","));
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealTargets.forEach(element => element.classList.add("is-revealed"));
+    } else {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add("is-revealed");
+                observer.unobserve(entry.target);
+            });
+        }, { threshold:0.12, rootMargin:"0px 0px -45px 0px" });
+        revealTargets.forEach(element => {
+            const siblings = Array.from(element.parentElement?.children || []);
+            const position = siblings.indexOf(element);
+            element.style.setProperty("--reveal-delay", `${Math.min(Math.max(position,0),4)*75}ms`);
+            element.classList.add("reveal-on-scroll");
+            revealObserver.observe(element);
+        });
+    }
+
     // 4. AÑO AUTOMÁTICO EN EL PIE DE PÁGINA
     // ======================================
 
