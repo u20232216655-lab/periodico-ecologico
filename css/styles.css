@@ -545,7 +545,32 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); }
     box-shadow: var(--shadow-soft);
 }
 .debate-card h3 { margin: 12px 0; font-family: var(--serif); font-size: 1.7rem; font-weight: 400; }
-.debate-author { display: block; margin-top: 20px; color: var(--green); font-size: .8rem; font-weight: 700; }
+.debate-author {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-top: auto;
+    padding-top: 24px;
+    color: var(--green);
+}
+.debate-author img {
+    display: block;
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border: 2px solid var(--green-soft);
+    border-radius: 50%;
+    object-fit: cover;
+}
+.debate-author span { display: grid; gap: 3px; }
+.debate-author small {
+    color: var(--muted);
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.debate-author strong { color: var(--green); font-size: .84rem; }
 .debate-second { margin-top: 22px; }
 
 /* RAEE Track — bloque oscuro distintivo */
