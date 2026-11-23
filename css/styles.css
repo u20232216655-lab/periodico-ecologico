@@ -2851,3 +2851,18 @@ select:focus-visible {
 .credits-card span {
     color: var(--editorial-ink);
 }
+
+
+/* Corrección de contraste de la cita destacada del reportaje */
+.article-quote {
+    background: #f1f6ec;
+    border-left-color: var(--editorial-lime);
+}
+
+.article-quote p {
+    color: var(--editorial-ink);
+}
+
+.article-quote cite {
+    color: var(--editorial-green);
+}
