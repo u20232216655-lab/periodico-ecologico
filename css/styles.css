@@ -1850,10 +1850,10 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     align-items: flex-start;
     padding: 19px 17px 17px;
     border: 1px solid rgba(23,75,53,.14);
-    background: #f7f9f1;
+    background: #dcebd3 !important;
 }
-.journey-step:nth-child(2) { background: #eff4e8; }
-.journey-step:nth-child(3) { background: #e7efe2; }
+.journey-steps > .journey-step:nth-child(2) { background: #c9dfbd !important; }
+.journey-steps > .journey-step:nth-child(3) { background: #b5d3a6 !important; }
 .journey-number {
     color: #84917f;
     font-family: var(--display);
