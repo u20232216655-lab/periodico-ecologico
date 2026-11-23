@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="RAEE TRACK: prototipo educativo para registrar y clasificar residuos de aparatos eléctricos y electrónicos.">
+  <meta name="theme-color" content="#071810">
+  <title>RAEE TRACK | ECOBYTE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.21.16/dist/css/uikit.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar"><div class="uk-container uk-container-large nav-inner">
+  <a class="brand" href="#inicio" aria-label="RAEE TRACK inicio"><span>RAEE</span> TRACK <small>ECOBYTE</small></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir navegación" aria-expanded="false">☰</button>
+  <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
+    <a href="#inicio" class="nav-link active" data-view="inicio">Inicio</a><a href="#registrar" class="nav-link" data-view="registrar">Registrar</a><a href="#inventario" class="nav-link" data-view="inventario">Inventario</a><a href="#reportes" class="nav-link" data-view="reportes">Reportes</a><a href="#guia" class="nav-link" data-view="guia">Guía RAEE</a>
+  </nav>
+</div></header>
+<main class="uk-container uk-container-large page-wrap">
+  <section class="view active" id="view-inicio">
+    <div class="hero-grid">
+      <div class="hero-copy"><span class="eyebrow"><i></i> TECNOLOGÍA CON SEGUNDA VIDA</span><h1>Dale una segunda vida <em>a la tecnología.</em></h1><p>Registra, clasifica y consulta dispositivos electrónicos en desuso. Pequeñas decisiones pueden impulsar una gestión más responsable.</p><div class="hero-actions"><a class="btn-primary" href="#registrar" data-view="registrar">＋ Registrar dispositivo</a><a class="btn-ghost" href="#guia" data-view="guia">Conocer la guía <span>↗</span></a></div><div class="hero-note">PROTOTIPO EDUCATIVO · SIN CUENTA · DATOS LOCALES</div></div>
+      <div class="hero-art" aria-label="Ilustración de tecnología y sostenibilidad"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="planet">♻</div><div class="chip chip-one">RAEE</div><div class="chip chip-two">REUTILIZA</div><div class="leaf leaf-one">✦</div><div class="leaf leaf-two">✧</div></div>
+    </div>
+    <div class="section-heading"><div><span class="eyebrow">VISTA GENERAL</span><h2>Tu impacto comienza aquí</h2></div><span class="live-label"><i></i> Datos de este navegador</span></div>
+    <div class="stats-grid">
+      <article class="stat-card"><div class="stat-icon">▣</div><p>Unidades registradas</p><strong id="statTotal">0</strong><small>En todos los registros</small></article>
+      <article class="stat-card"><div class="stat-icon">↻</div><p>Para reparar</p><strong id="statRepair">0</strong><small>Equipos con reparación posible</small></article>
+      <article class="stat-card"><div class="stat-icon">♡</div><p>Para reutilizar</p><strong id="statReuse">0</strong><small>Equipos que aún funcionan</small></article>
+      <article class="stat-card"><div class="stat-icon">♻</div><p>Para gestión RAEE</p><strong id="statRecycle">0</strong><small>Requieren canal adecuado</small></article>
+    </div>
+    <div class="content-grid home-lower"><section class="panel"><div class="panel-head"><div><span class="eyebrow">ACTIVIDAD RECIENTE</span><h3>Últimos registros</h3></div><a href="#inventario" data-view="inventario" class="text-link">Ver inventario →</a></div><div id="recentList" class="empty-state">Aún no hay dispositivos. Registra el primero para comenzar.</div></section>
+      <aside class="tip-card"><span class="tip-symbol">✳</span><span class="eyebrow">CONSEJO ECOBYTE</span><h3>Antes de desechar, piensa en reparar.</h3><p>Un diagnóstico técnico puede ayudar a prolongar la vida útil de un dispositivo y evitar que se convierta prematuramente en residuo.</p><a href="#guia" data-view="guia">Más recomendaciones <span>→</span></a></aside></div>
+  </section>
+
+  <section class="view" id="view-registrar">
+    <div class="page-title"><span class="eyebrow">NUEVO REGISTRO</span><h1>Registrar dispositivo</h1><p>Completa los datos del aparato que deseas incluir en el inventario.</p></div>
+    <div class="form-layout"><form id="deviceForm" class="panel form-panel" novalidate><input type="hidden" id="editId">
+      <div class="form-section-title"><span>01</span><div><h3>Información del dispositivo</h3><p>Los campos marcados con * son obligatorios.</p></div></div>
+      <div class="form-grid"><label>Nombre o tipo de dispositivo *<select id="device" required><option value="">Selecciona una opción</option><option>Celular</option><option>Computador portátil</option><option>Computador de escritorio</option><option>Monitor o pantalla</option><option>Impresora</option><option>Teclado o mouse</option><option>Router o módem</option><option>Tableta</option><option>Televisor</option><option>Pequeño electrodoméstico</option><option>Otro aparato electrónico</option></select></label>
+      <label>Categoría *<select id="category" required><option value="">Selecciona una categoría</option><option>Equipos pequeños</option><option>Equipos grandes</option><option>Pantallas</option><option>Pequeños equipos informáticos</option><option>Intercambio de temperatura</option><option>Lámparas</option><option>Otra categoría</option></select></label>
+      <label>Estado actual *<select id="condition" required><option value="">Selecciona el estado</option><option value="Funciona">Funciona</option><option value="Reparable">Tiene reparación posible</option><option value="Dañado">No funciona / daño grave</option></select></label>
+      <label>Cantidad *<input id="quantity" type="number" min="1" max="9999" value="1" required></label>
+      <label>Fecha de registro *<input id="date" type="date" required></label>
+      <label>Ubicación (opcional)<input id="location" type="text" maxlength="80" placeholder="Ej. Hogar, aula, oficina"></label>
+      <label class="full-field">Observaciones<textarea id="notes" rows="3" maxlength="500" placeholder="Describe daños, accesorios faltantes u otra información relevante..."></textarea></label></div>
+      <div class="form-actions"><button type="button" class="btn-ghost" id="resetForm">Limpiar</button><button type="submit" class="btn-primary" id="saveButton">Guardar registro <span>→</span></button></div><p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+    </form><aside class="panel side-info"><div class="side-icon">⌁</div><h3>¿Por qué registrar?</h3><p>Un inventario ayuda a conocer qué dispositivos están en desuso y a decidir qué alternativa puede ser más adecuada.</p><div class="mini-rule"></div><strong>Orientación inicial</strong><ul><li><b>Funciona:</b> conservar, donar o reutilizar de forma segura.</li><li><b>Reparable:</b> solicitar diagnóstico técnico.</li><li><b>Dañado:</b> consultar un sistema de recolección autorizado.</li></ul><small>La orientación depende del estado declarado por quien registra.</small></aside></div>
+  </section>
+
+  <section class="view" id="view-inventario">
+    <div class="page-title page-title-row"><div><span class="eyebrow">CONTROL DE DISPOSITIVOS</span><h1>Inventario</h1><p>Consulta, filtra, edita o elimina tus registros.</p></div><button class="btn-primary" data-view="registrar">＋ Nuevo registro</button></div>
+    <div class="panel inventory-panel"><div class="filter-row"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar dispositivo, ubicación..."></label><select id="filterCategory" aria-label="Filtrar por categoría"><option value="">Todas las categorías</option><option>Equipos pequeños</option><option>Equipos grandes</option><option>Pantallas</option><option>Pequeños equipos informáticos</option><option>Intercambio de temperatura</option><option>Lámparas</option><option>Otra categoría</option></select><select id="filterCondition" aria-label="Filtrar por estado"><option value="">Todos los estados</option><option value="Funciona">Funciona</option><option value="Reparable">Reparable</option><option value="Dañado">Dañado</option></select></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Dispositivo</th><th>Categoría</th><th>Estado</th><th>Cantidad</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody id="inventoryBody"></tbody></table></div><div id="inventoryEmpty" class="empty-state">No hay registros que coincidan con la búsqueda.</div><div class="inventory-foot"><span id="inventoryCount">0 registros</span><button id="exportCsv" class="btn-outline">↓ Exportar CSV</button></div></div>
+  </section>
+
+  <section class="view" id="view-reportes">
+    <div class="page-title"><span class="eyebrow">ANÁLISIS DEL INVENTARIO</span><h1>Reportes</h1><p>Visualiza cómo se distribuyen los dispositivos registrados.</p></div>
+    <div class="report-summary"><div><span>UNIDADES REGISTRADAS</span><strong id="reportTotal">0</strong></div><div><span>CATEGORÍAS UTILIZADAS</span><strong id="reportCategories">0</strong></div><div><span>REGISTROS CREADOS</span><strong id="reportEntries">0</strong></div></div>
+    <div class="charts-grid"><article class="panel chart-panel"><div class="panel-head"><div><span class="eyebrow">POR ESTADO</span><h3>Condición de los equipos</h3></div></div><div class="chart-area"><canvas id="conditionChart" aria-label="Gráfico de dispositivos por estado"></canvas><p class="chart-fallback" id="conditionFallback">Registra dispositivos para generar el gráfico.</p></div></article><article class="panel chart-panel"><div class="panel-head"><div><span class="eyebrow">POR CATEGORÍA</span><h3>Distribución de RAEE</h3></div></div><div class="chart-area"><canvas id="categoryChart" aria-label="Gráfico de dispositivos por categoría"></canvas><p class="chart-fallback" id="categoryFallback">Registra dispositivos para generar el gráfico.</p></div></article></div>
+    <div class="export-note"><span>↗</span><div><strong>¿Necesitas conservar los resultados?</strong><p>Exporta el inventario en formato CSV para abrirlo en una hoja de cálculo.</p></div><button class="btn-outline" id="exportCsvReport">Exportar datos</button></div>
+  </section>
+
+  <section class="view" id="view-guia">
+    <div class="page-title"><span class="eyebrow">APRENDE Y ACTÚA</span><h1>Guía RAEE</h1><p>Conoce algunas prácticas para manejar responsablemente los aparatos eléctricos y electrónicos.</p></div>
+    <div class="guide-hero"><div><span class="eyebrow">GESTIÓN RESPONSABLE</span><h2>El ciclo no termina cuando dejas de usarlo.</h2><p>Antes de desechar un equipo, considera las alternativas que pueden prolongar su vida útil o facilitar su gestión adecuada.</p></div><div class="guide-graphic">♻</div></div>
+    <div class="guide-grid"><article class="panel guide-card"><span class="guide-number">01</span><h3>Reducir</h3><p>Compra solo cuando sea necesario. Evalúa la durabilidad, reparabilidad y eficiencia del producto.</p></article><article class="panel guide-card"><span class="guide-number">02</span><h3>Reparar</h3><p>Busca un diagnóstico técnico. Una reparación puede evitar el reemplazo prematuro del dispositivo.</p></article><article class="panel guide-card"><span class="guide-number">03</span><h3>Reutilizar</h3><p>Si todavía funciona, considera conservarlo, donarlo o darle otro uso seguro.</p></article><article class="panel guide-card"><span class="guide-number">04</span><h3>Entregar adecuadamente</h3><p>Consulta programas posconsumo y gestores autorizados. No lo mezcles con la basura ordinaria.</p></article></div>
+    <div class="panel safety-panel"><div class="safety-icon">!</div><div><h3>Protege tu información y tu seguridad</h3><p>Antes de entregar un dispositivo, realiza una copia de seguridad, cierra tus sesiones y elimina tus datos personales. No quemes, rompas ni desarmes aparatos para recuperar materiales.</p></div></div>
+    <div class="official-links"><span class="eyebrow">FUENTES DE CONSULTA</span><a href="https://www.minambiente.gov.co/asuntos-ambientales-sectorial-y-urbana/residuos-de-aparato-electricos-y-electronicos-raee/" target="_blank" rel="noopener noreferrer">Ministerio de Ambiente y Desarrollo Sostenible — RAEE ↗</a><a href="https://ewastemonitor.info/" target="_blank" rel="noopener noreferrer">Global E-waste Monitor ↗</a><a href="https://www.who.int/news-room/fact-sheets/detail/electronic-waste-(e-waste)" target="_blank" rel="noopener noreferrer">Organización Mundial de la Salud — Residuos electrónicos ↗</a></div>
+    <p class="disclaimer">RAEE TRACK es un prototipo académico y educativo. No recibe residuos, no certifica procesos de reciclaje ni reemplaza la orientación de autoridades ambientales o gestores autorizados. Verifica siempre los canales oficiales disponibles en tu municipio.</p>
+  </section>
+</main>
+<footer class="footer"><div class="uk-container uk-container-large footer-inner"><a class="brand" href="#inicio"><span>RAEE</span> TRACK</a><p>Un proyecto académico de ECOBYTE · Juan David Vargas y Oscar Cerquera</p><small>La tecnología también debe aprender a renovarse.</small></div></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="confirmModal" uk-modal><div class="uk-modal-dialog uk-modal-body modal-box"><h2>Eliminar registro</h2><p>¿Seguro que deseas eliminar este dispositivo del inventario?</p><div class="form-actions"><button class="btn-ghost uk-modal-close" type="button">Cancelar</button><button class="btn-danger" id="confirmDelete" type="button">Eliminar</button></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.21.16/dist/js/uikit.min.js"></script><script src="https://cdn.jsdelivr.net/npm/uikit@3.21.16/dist/js/uikit-icons.min.js"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script><script src="js/app.js"></script>
+</body></html>

@@ -1,0 +1,1322 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="ECOBYTE: periódico digital sobre basura electrónica, sostenibilidad, tecnología e innovación ambiental.">
+
+    <meta name="theme-color" content="#10251E">
+
+    <title>ECOBYTE | La tecnología también debe aprender a renovarse</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- UIkit -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
+
+    <!-- Estilos propios -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- UIkit JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js" defer></script>
+
+    <!-- JavaScript propio -->
+    <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ==========================================
+         NAVEGACIÓN
+    =========================================== -->
+
+    <header class="site-header">
+        <nav class="uk-navbar-container navbar" uk-navbar>
+
+            <div class="uk-container uk-width-1-1">
+
+                <div class="uk-navbar">
+
+                    <div class="uk-navbar-left">
+                        <a href="#inicio" class="uk-navbar-item uk-logo logo">
+                            <span class="logo-icon">E</span>
+                            ECOBYTE<span class="logo-point">.</span>
+                        </a>
+                    </div>
+
+                    <div class="uk-navbar-right">
+
+                        <button class="uk-navbar-toggle menu-toggle"
+                            type="button"
+                            aria-label="Abrir menú"
+                            aria-expanded="false"
+                            uk-navbar-toggle-icon>
+                        </button>
+
+                        <div class="uk-navbar-dropdown nav-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="#inicio">Inicio</a></li>
+                                <li><a href="#reportaje">Reportaje</a></li>
+                                <li><a href="#ia-carrera">IA y mi carrera</a></li>
+                                <li><a href="#voces">Voces del territorio</a></li>
+                                <li><a href="#debate">Debate cruzado</a></li>
+                                <li><a href="#bug-mes">Bug del mes</a></li>
+                                <li><a href="#cifra-dia">La cifra del día</a></li>
+                                <li><a href="#historia">Historia que inspira</a></li>
+                                <li><a href="#cierre">Cierre</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- ==========================================
+             1. PORTADA
+        =========================================== -->
+
+        <section id="inicio" class="hero-section">
+
+            <div class="uk-container">
+
+                <div class="hero-content">
+
+                    <div class="hero-top">
+                        <span class="edition-label">EDICIÓN DIGITAL N.º 01</span>
+                        <span class="edition-date">SIN FECHA</span>
+                    </div>
+
+                    <p class="hero-kicker">
+                        TECNOLOGÍA · MEDIO AMBIENTE · SOSTENIBILIDAD
+                    </p>
+
+                    <h1>
+                        EL PLANETA NO ES UN
+                        <span>BASURERO TECNOLÓGICO.</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        La basura electrónica: el residuo que más rápido crece.
+                    </p>
+
+                    <p class="hero-description">
+                        Cada dispositivo que utilizamos tiene una historia
+                        detrás de su fabricación y un impacto después de
+                        terminar su vida útil. Es momento de cambiar nuestra
+                        relación con la tecnología.
+                    </p>
+
+                    <div class="hero-stat">
+                        <span class="hero-stat-number">62</span>
+                        <div>
+                            <strong>millones de toneladas</strong>
+                            <p>de residuos electrónicos generados en el mundo durante 2022.</p>
+                        </div>
+                    </div>
+
+                    <small class="hero-source">
+                        Fuente: Global E-waste Monitor 2024.
+                    </small>
+
+                    <div class="hero-actions">
+                        <a href="#reportaje" class="uk-button btn-primary">
+                            Explorar periódico
+                        </a>
+
+                        <a href="#interactivo" class="uk-button btn-outline">
+                            Calcular mi impacto
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="hero-bottom">
+                    <span>USCO · NEIVA, HUILA</span>
+                    <span>LA TECNOLOGÍA TAMBIÉN DEBE APRENDER A RENOVARSE.</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             2. REPORTAJE PRINCIPAL
+        =========================================== -->
+
+        <section id="reportaje" class="section report-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+                    <span class="section-label">01 / REPORTAJE PRINCIPAL</span>
+
+                    <h2>
+                        La otra cara de la revolución tecnológica
+                    </h2>
+
+                    <p class="section-description">
+                        El crecimiento de los residuos electrónicos plantea
+                        uno de los desafíos ambientales más importantes
+                        de nuestra época.
+                    </p>
+                </div>
+
+                <article class="main-article">
+
+                    <div class="article-intro">
+                        <p class="article-lead">
+                            La tecnología ha transformado nuestra forma de
+                            estudiar, trabajar, comunicarnos y relacionarnos
+                            con el mundo. Sin embargo, detrás de cada nuevo
+                            celular, computador o electrodoméstico existe
+                            una realidad que pocas veces recibe la misma
+                            atención: los residuos que dejamos cuando estos
+                            dispositivos pierden su utilidad.
+                        </p>
+                    </div>
+
+                    <div class="article-content">
+
+                        <p>
+                            Los residuos de aparatos eléctricos y electrónicos,
+                            conocidos como RAEE, comprenden equipos que necesitan
+                            corriente eléctrica o campos electromagnéticos para
+                            funcionar y que han llegado al final de su vida útil.
+                            En esta categoría se encuentran teléfonos celulares,
+                            computadores, televisores, impresoras, neveras,
+                            lavadoras, baterías y muchos otros productos.
+                        </p>
+
+                        <p>
+                            De acuerdo con el <strong>Global E-waste Monitor
+                            2024</strong>, durante 2022 el mundo generó
+                            aproximadamente 62 millones de toneladas de residuos
+                            electrónicos. Lo preocupante no es solamente su
+                            volumen: apenas el 22,3 % fue documentado como
+                            formalmente recolectado y reciclado de manera
+                            ambientalmente adecuada. Esto significa que una
+                            gran cantidad de materiales permanece fuera de
+                            los sistemas formales de gestión.
+                        </p>
+
+                        <p>
+                            El problema también se relaciona con nuestros
+                            hábitos de consumo. En ocasiones cambiamos un
+                            dispositivo porque aparece un modelo nuevo, porque
+                            su batería dura menos, porque deja de recibir
+                            actualizaciones o porque repararlo parece demasiado
+                            costoso. Aunque algunas sustituciones son necesarias,
+                            muchas otras podrían evitarse mediante mantenimiento,
+                            reparación, actualización o reutilización.
+                        </p>
+
+                        <p>
+                            Cuando un aparato se desecha incorrectamente,
+                            sus componentes pueden terminar en rellenos
+                            sanitarios, bodegas informales o procesos de
+                            recuperación sin controles adecuados. Algunos
+                            residuos contienen sustancias peligrosas que,
+                            si se manipulan de manera inadecuada, pueden
+                            contaminar el suelo, el agua y el aire, además
+                            de representar riesgos para las personas que
+                            trabajan en su desmantelamiento.
+                        </p>
+
+                        <p>
+                            Colombia también enfrenta este desafío. El perfil
+                            nacional del Global E-waste Monitor registra
+                            aproximadamente 388.000 toneladas de residuos
+                            electrónicos generadas durante 2022, equivalentes
+                            a cerca de 7,5 kilogramos por habitante. Esta
+                            información muestra que el problema no es exclusivo
+                            de los países industrializados: también está
+                            presente en nuestro territorio.
+                        </p>
+
+                        <p>
+                            Frente a esta situación, la responsabilidad no
+                            corresponde únicamente a los consumidores.
+                            Los fabricantes, distribuidores, autoridades,
+                            instituciones educativas y gestores autorizados
+                            cumplen funciones importantes. La legislación
+                            colombiana, mediante la Ley 1672 de 2013 y la
+                            Resolución 851 de 2022, establece disposiciones
+                            relacionadas con la gestión integral de estos
+                            residuos y los sistemas de recolección.
+                        </p>
+
+                        <p>
+                            Desde la Ingeniería de Software también podemos
+                            aportar. Una plataforma digital puede facilitar
+                            el registro de dispositivos, la identificación
+                            de su estado, la consulta de alternativas de
+                            reparación y la orientación hacia canales de
+                            recolección adecuados. La tecnología puede
+                            convertirse en parte de la solución, siempre
+                            que se diseñe pensando en las necesidades
+                            ambientales y sociales.
+                        </p>
+
+                        <p>
+                            El cambio comienza con decisiones cotidianas:
+                            cuidar los dispositivos, prolongar su vida útil,
+                            borrar correctamente la información personal antes
+                            de entregarlos y evitar que terminen en la basura
+                            convencional. La innovación no debería medirse
+                            solamente por la cantidad de productos nuevos que
+                            aparecen en el mercado, sino también por nuestra
+                            capacidad de aprovechar los recursos existentes.
+                        </p>
+
+                    </div>
+
+                    <blockquote class="article-quote">
+                        <p>
+                            "La transición digital no puede considerarse
+                            sostenible si ignora los residuos que produce."
+                        </p>
+                        <cite>Reflexión editorial ECOBYTE</cite>
+                    </blockquote>
+
+                    <div class="article-facts">
+
+                        <div class="fact-card">
+                            <strong>62 millones</strong>
+                            <span>de toneladas generadas en el mundo en 2022.</span>
+                        </div>
+
+                        <div class="fact-card">
+                            <strong>22,3 %</strong>
+                            <span>documentado como formalmente recolectado y reciclado.</span>
+                        </div>
+
+                        <div class="fact-card">
+                            <strong>388.000 t</strong>
+                            <span>generadas en Colombia durante 2022.</span>
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             3. IA Y MI CARRERA
+        =========================================== -->
+
+        <section id="ia-carrera" class="section ai-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+                    <span class="section-label">02 / TECNOLOGÍA Y PROFESIÓN</span>
+
+                    <h2>IA y mi carrera: programar para un futuro sostenible</h2>
+
+                    <p class="section-description">
+                        La Inteligencia Artificial puede ayudar a enfrentar
+                        problemas ambientales, pero su implementación también
+                        debe ser responsable.
+                    </p>
+                </div>
+
+                <div class="uk-grid-match uk-child-width-1-3@m" uk-grid>
+
+                    <div>
+                        <article class="uk-card uk-card-default uk-card-body info-card">
+                            <span class="info-number">01</span>
+                            <h3>Aplicaciones reales de la IA</h3>
+
+                            <p>
+                                En la Ingeniería de Software, la Inteligencia
+                                Artificial puede utilizarse para analizar grandes
+                                cantidades de datos, detectar patrones, clasificar
+                                información y automatizar procesos. En el ámbito
+                                ambiental, estas capacidades permiten apoyar la
+                                identificación de materiales reciclables, estimar
+                                la generación de residuos y optimizar rutas de
+                                recolección. También pueden ayudar a las
+                                organizaciones a tomar decisiones basadas en
+                                información y no solamente en suposiciones.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div>
+                        <article class="uk-card uk-card-default uk-card-body info-card">
+                            <span class="info-number">02</span>
+                            <h3>Una propuesta desde el software</h3>
+
+                            <p>
+                                Nuestra propuesta es RAEE TRACK, un prototipo
+                                web orientado al registro y clasificación de
+                                dispositivos electrónicos. Permite registrar
+                                equipos, consultar su estado, identificar
+                                alternativas de reparación o reutilización y
+                                visualizar estadísticas. En una futura versión,
+                                podría incorporarse Inteligencia Artificial
+                                para sugerir categorías a partir de fotografías
+                                o recomendar acciones según las características
+                                del dispositivo. Estas funciones son propuestas
+                                futuras y no forman parte de la versión actual.
+                            </p>
+                        </article>
+                    </div>
+
+                    <div>
+                        <article class="uk-card uk-card-default uk-card-body info-card">
+                            <span class="info-number">03</span>
+                            <h3>Riesgos ambientales y éticos</h3>
+
+                            <p>
+                                La IA también tiene impactos. El entrenamiento
+                                y funcionamiento de modelos puede requerir
+                                grandes cantidades de electricidad, agua y
+                                recursos computacionales. Además, los sistemas
+                                automatizados pueden producir recomendaciones
+                                incorrectas, reproducir sesgos o recopilar
+                                información personal sin suficiente
+                                transparencia. Por ello, debemos desarrollar
+                                soluciones eficientes, proteger los datos,
+                                verificar los resultados y evaluar si el
+                                beneficio ambiental justifica los recursos
+                                utilizados.
+                            </p>
+                        </article>
+                    </div>
+
+                </div>
+
+                <div class="ai-reflection">
+                    <strong>Nuestra reflexión:</strong>
+                    <p>
+                        Como futuros profesionales de software, tenemos la
+                        responsabilidad de crear tecnología útil, accesible,
+                        segura y consciente de sus consecuencias ambientales.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             4. VOCES DEL TERRITORIO
+        =========================================== -->
+
+        
+<section id="voces" class="section">
+    <div class="section-heading">
+        <span class="section-label">04 — PERIODISMO Y COMUNIDAD</span>
+        <h2>Voces del territorio</h2>
+        <p>Dos miradas sobre el futuro de los residuos electrónicos</p>
+    </div>
+
+    <div class="voices-grid">
+
+        <!-- ENTREVISTA 1 -->
+        <article class="interview-card voice-card">
+            <div class="voice-image">
+                <img
+                    src="assets/tecnico-reparacion.png"
+                    alt="Técnico reparando los componentes internos de un computador"
+                    loading="lazy"
+                >
+                <span class="voice-number">01</span>
+            </div>
+
+            <div class="voice-content">
+                <span class="voice-role">MANTENIMIENTO Y REPARACIÓN</span>
+                <h3>Reparar antes que desechar</h3>
+                <p class="voice-person">Técnico independiente de mantenimiento y reparación</p>
+
+                <div class="interview-question">
+                    <h4>¿Qué tipo de aparatos electrónicos recibe con mayor frecuencia?</h4>
+                    <p>Principalmente computadores portátiles, celulares, cargadores y pequeños electrodomésticos. Muchos llegan por problemas de batería, pantallas dañadas o fallas en sus componentes internos.</p>
+                </div>
+
+                <div class="interview-question">
+                    <h4>¿Considera que los dispositivos podrían tener una vida útil más larga?</h4>
+                    <p>Sí. En muchos casos, una reparación sencilla permite recuperar un equipo. El problema es que algunas personas prefieren comprar uno nuevo sin consultar primero si el anterior puede repararse.</p>
+                </div>
+
+                <div class="interview-question">
+                    <h4>¿Qué recomienda antes de desechar un dispositivo?</h4>
+                    <p>Buscar una alternativa de reparación, reutilizar sus componentes cuando sea posible y, si ya no funciona, llevarlo a un sistema autorizado de recolección de residuos electrónicos.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- ENTREVISTA 2 -->
+        <article class="interview-card voice-card">
+            <div class="voice-image">
+                <img
+                    src="assets/educadora-ambiental.png"
+                    alt="Educadora ambiental explicando la importancia del reciclaje electrónico"
+                    loading="lazy"
+                >
+                <span class="voice-number">02</span>
+            </div>
+
+            <div class="voice-content">
+                <span class="voice-role">EDUCACIÓN Y CONCIENCIA AMBIENTAL</span>
+                <h3>La educación también recicla</h3>
+                <p class="voice-person">Educadora ambiental</p>
+
+                <div class="interview-question">
+                    <h4>¿Por qué es importante separar los residuos electrónicos de la basura convencional?</h4>
+                    <p>Porque contienen materiales que pueden aprovecharse, pero también sustancias que pueden representar riesgos para el ambiente y la salud cuando se manipulan o eliminan incorrectamente.</p>
+                </div>
+
+                <div class="interview-question">
+                    <h4>¿Qué papel cumple la educación ambiental?</h4>
+                    <p>Permite que las personas comprendan que un celular, una batería o un computador no deben terminar en cualquier recipiente. Es necesario conocer las alternativas de recolección y actuar responsablemente.</p>
+                </div>
+
+                <div class="interview-question">
+                    <h4>¿Qué mensaje daría a los jóvenes?</h4>
+                    <p>Antes de cambiar un dispositivo, pensemos si realmente lo necesitamos. La tecnología debe facilitarnos la vida, pero también debemos responsabilizarnos por los residuos que genera.</p>
+                </div>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="interview-disclaimer">
+        <span class="disclaimer-icon">i</span>
+        <div>
+            <strong>Nota editorial</strong>
+            <p>Los testimonios de esta sección son recreaciones académicas elaboradas para representar dos perspectivas relacionadas con la problemática de los residuos de aparatos eléctricos y electrónicos (RAEE).</p>
+        </div>
+    </div>
+</section>
+
+
+
+        <!-- ==========================================
+             5. DEBATE CRUZADO
+        =========================================== -->
+
+        <section id="debate" class="section debate-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+                    <span class="section-label">04 / DEBATE CRUZADO</span>
+
+                    <h2>¿La innovación tecnológica justifica reemplazar constantemente?</h2>
+
+                    <p class="section-description">
+                        Dos posiciones diferentes frente al consumo y la
+                        responsabilidad tecnológica.
+                    </p>
+                </div>
+
+                <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+
+                    <div>
+                        <article class="debate-card">
+
+                            <span class="debate-position">POSTURA CRÍTICA</span>
+
+                            <h3>La innovación no debería convertirse en consumo excesivo</h3>
+
+                            <p>
+                                La industria tecnológica avanza rápidamente,
+                                pero esto no significa que debamos reemplazar
+                                nuestros dispositivos cada vez que aparece
+                                un modelo nuevo. Muchos aparatos continúan
+                                funcionando y podrían utilizarse durante
+                                varios años más si reciben mantenimiento
+                                adecuado. El reemplazo constante aumenta
+                                la demanda de materias primas, la fabricación
+                                de nuevos productos y la generación de
+                                residuos electrónicos.
+                            </p>
+
+                            <p>
+                                Considero que una sociedad verdaderamente
+                                innovadora debe valorar también la reparación,
+                                la durabilidad y la reutilización. Las empresas
+                                deberían facilitar el acceso a repuestos y
+                                actualizaciones, mientras que los consumidores
+                                debemos evaluar si realmente necesitamos
+                                adquirir otro dispositivo. La tecnología
+                                debe mejorar nuestra calidad de vida sin
+                                convertir el planeta en un depósito de
+                                productos desechados.
+                            </p>
+
+                            <div class="debate-author">
+                                Juan David Vargas
+                            </div>
+
+                        </article>
+                    </div>
+
+                    <div>
+                        <article class="debate-card debate-second">
+
+                            <span class="debate-position">POSTURA FAVORABLE A LA INNOVACIÓN</span>
+
+                            <h3>La innovación también puede impulsar soluciones ambientales</h3>
+
+                            <p>
+                                La innovación tecnológica no debe considerarse
+                                necesariamente un problema. Los nuevos
+                                desarrollos pueden mejorar la eficiencia
+                                energética, facilitar la reparación, reducir
+                                el consumo de recursos y crear herramientas
+                                para gestionar mejor los residuos. El problema
+                                no está en innovar, sino en hacerlo sin
+                                considerar las consecuencias ambientales
+                                y sociales.
+                            </p>
+
+                            <p>
+                                Desde esta perspectiva, necesitamos continuar
+                                desarrollando tecnologías, pero acompañadas
+                                de principios de sostenibilidad. Un dispositivo
+                                moderno puede ofrecer beneficios importantes
+                                si se fabrica responsablemente, tiene una
+                                vida útil adecuada y cuenta con alternativas
+                                de recuperación al finalizar su uso. La
+                                Ingeniería de Software puede contribuir
+                                mediante sistemas que optimicen procesos,
+                                faciliten el acceso a información y promuevan
+                                decisiones de consumo más conscientes.
+                                Innovar también significa encontrar formas
+                                de reducir nuestro impacto.
+                            </p>
+
+                            <div class="debate-author">
+                                Oscar Cerquera
+                            </div>
+
+                        </article>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             NOTICIA DE IMPACTO: RAEE TRACK
+        =========================================== -->
+
+        <section id="noticia-impacto" class="section impact-section">
+
+            <div class="uk-container">
+
+                <div class="impact-card">
+
+                    <div class="impact-content">
+
+                        <span class="section-label">
+                            NOTICIA DE IMPACTO · INNOVACIÓN LOCAL
+                        </span>
+
+                        <h2>RAEE TRACK: una herramienta digital para cambiar el destino de los residuos electrónicos</h2>
+
+                        <p>
+                            ¿Y si pudiéramos llevar un registro de los
+                            dispositivos que ya no utilizamos y conocer
+                            alternativas para aprovecharlos mejor?
+                        </p>
+
+                        <p>
+                            RAEE TRACK es un prototipo web académico que
+                            permite registrar equipos electrónicos,
+                            clasificarlos según su estado, consultar un
+                            inventario y visualizar estadísticas. Su
+                            propósito es demostrar cómo el desarrollo
+                            de software puede apoyar la educación y la
+                            gestión responsable de los RAEE.
+                        </p>
+
+                        <p>
+                            El prototipo funciona en el navegador y almacena
+                            sus registros localmente. No reemplaza a los
+                            gestores autorizados ni certifica procesos
+                            de reciclaje o disposición final.
+                        </p>
+
+                        <a href="./raee-track/index.html"
+                            class="uk-button btn-primary impact-button">
+                            Explorar RAEE TRACK
+                            <span uk-icon="icon: arrow-right"></span>
+                        </a>
+
+                    </div>
+
+                    <div class="impact-visual">
+                        <span class="impact-icon" uk-icon="icon: laptop; ratio: 4"></span>
+                        <span class="impact-tag">TECNOLOGÍA CON PROPÓSITO</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             6. SECCIONES LLAMATIVAS
+        =========================================== -->
+
+        <!-- BUG DEL MES -->
+
+        <section id="bug-mes" class="section bug-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+                    <span class="section-label">05 / SECCIÓN ESPECIAL</span>
+
+                    <h2>Bug del mes: obsolescencia programada</h2>
+
+                    <p class="section-description">
+                        Cuando la tecnología deja de ser útil antes de tiempo,
+                        el planeta termina pagando las consecuencias.
+                    </p>
+                </div>
+
+                <div class="bug-card">
+
+                    <div class="bug-header">
+                        <span class="bug-status">BUG #001</span>
+                        <span class="bug-severity">Impacto ambiental alto</span>
+                    </div>
+
+                    <h3>Dispositivos reemplazados prematuramente</h3>
+
+                    <div class="bug-details">
+
+                        <div>
+                            <h4>01. Causa</h4>
+                            <p>
+                                Actualizaciones incompatibles, baterías
+                                difíciles de reemplazar, reparaciones
+                                costosas y hábitos de consumo que promueven
+                                cambiar dispositivos constantemente.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4>02. Impacto</h4>
+                            <p>
+                                Aumenta la extracción de materias primas,
+                                el consumo energético y la generación de
+                                residuos electrónicos. También se pierden
+                                materiales que podrían recuperarse.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4>03. Patch propuesto</h4>
+                            <p>
+                                Priorizar el mantenimiento, utilizar
+                                dispositivos reparables, actualizar el
+                                software responsablemente y entregar los
+                                equipos fuera de uso a sistemas autorizados
+                                de recolección.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="bug-footer">
+                        <strong>Estado del error:</strong>
+                        <span>Requiere intervención del usuario</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LA CIFRA DEL DÍA -->
+
+        <section id="cifra-dia" class="section cifra-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+                    <span class="section-label">06 / SECCIÓN ESPECIAL</span>
+
+                    <h2>La cifra del día</h2>
+
+                    <p class="section-description">
+                        Colombia enfrenta un importante desafío frente
+                        al crecimiento de los residuos electrónicos.
+                    </p>
+                </div>
+
+                <div class="uk-card uk-card-default uk-card-body cifra-card">
+
+                    <div class="cifra-number">
+                        388.000 <span>toneladas</span>
+                    </div>
+
+                    <p>
+                        Residuos de aparatos eléctricos y electrónicos
+                        generados en Colombia durante 2022.
+                    </p>
+
+                    <small>
+                        Fuente: Global E-waste Monitor 2024.
+                        Datos correspondientes a 2022.
+                    </small>
+
+                </div>
+
+                <div class="chart-container">
+
+                    <h3>¿Qué tipos de residuos se generan?</h3>
+
+                    <p>
+                        Selecciona una categoría para explorar los datos
+                        registrados en Colombia.
+                    </p>
+
+                    <label for="categoryFilter">
+                        Categoría de residuos
+                    </label>
+
+                    <select id="categoryFilter" class="uk-select">
+
+                        <option value="all">
+                            Todas las categorías
+                        </option>
+
+                        <option value="small">
+                            Equipos pequeños
+                        </option>
+
+                        <option value="temperature">
+                            Intercambio de temperatura
+                        </option>
+
+                        <option value="large">
+                            Equipos grandes
+                        </option>
+
+                        <option value="screens">
+                            Pantallas y monitores
+                        </option>
+
+                        <option value="it">
+                            Pequeños equipos informáticos
+                        </option>
+
+                        <option value="lamps">
+                            Lámparas
+                        </option>
+
+                    </select>
+
+                    <div class="chart-wrapper">
+                        <canvas id="raeeChart"
+                            aria-label="Gráfico de residuos electrónicos en Colombia por categoría"
+                            role="img">
+                        </canvas>
+                    </div>
+
+                    <p id="categoryInfo"
+                        class="category-info"
+                        aria-live="polite">
+                        Se muestran todas las categorías de residuos electrónicos.
+                    </p>
+
+                    <p class="chart-note">
+                        Valores expresados en miles de toneladas.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             CALCULADORA INTERACTIVA
+        =========================================== -->
+
+        <section id="interactivo" class="section calculator-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        HERRAMIENTA INTERACTIVA ECOBYTE
+                    </span>
+
+                    <h2>Calcula tu impacto tecnológico</h2>
+
+                    <p class="section-description">
+                        Descubre cuánto podrían pesar los dispositivos
+                        electrónicos que tienes sin utilizar y cuánto
+                        material podrías aprovechar mediante la reutilización.
+                    </p>
+
+                </div>
+
+                <div class="calculator-card">
+
+                    <div class="calculator-form">
+
+                        <h3>Mis dispositivos</h3>
+
+                        <div class="calculator-field">
+
+                            <label for="phones">
+                                <span uk-icon="icon: phone"></span>
+                                Teléfonos celulares
+                            </label>
+
+                            <input type="number"
+                                id="phones"
+                                class="uk-input"
+                                value="0"
+                                min="0"
+                                max="100">
+
+                            <small>Peso estimado: 0,2 kg por unidad.</small>
+
+                        </div>
+
+                        <div class="calculator-field">
+
+                            <label for="computers">
+                                <span uk-icon="icon: laptop"></span>
+                                Computadores
+                            </label>
+
+                            <input type="number"
+                                id="computers"
+                                class="uk-input"
+                                value="0"
+                                min="0"
+                                max="100">
+
+                            <small>Peso estimado: 2 kg por unidad.</small>
+
+                        </div>
+
+                        <div class="calculator-field">
+
+                            <label for="tablets">
+                                <span uk-icon="icon: tablet"></span>
+                                Tabletas
+                            </label>
+
+                            <input type="number"
+                                id="tablets"
+                                class="uk-input"
+                                value="0"
+                                min="0"
+                                max="100">
+
+                            <small>Peso estimado: 0,5 kg por unidad.</small>
+
+                        </div>
+
+                        <div class="calculator-field">
+
+                            <label for="reuse">
+                                Porcentaje potencial de reutilización:
+                                <strong id="reuseValue">30%</strong>
+                            </label>
+
+                            <input type="range"
+                                id="reuse"
+                                class="uk-range"
+                                min="0"
+                                max="100"
+                                value="30">
+
+                        </div>
+
+                        <button type="button"
+                            id="calculateButton"
+                            class="uk-button btn-primary uk-width-1-1">
+                            Calcular impacto
+                        </button>
+
+                    </div>
+
+
+                    <div class="calculator-results">
+
+                        <h3>Tu resultado</h3>
+
+                        <div class="result-box">
+
+                            <span class="result-label">
+                                Peso total estimado
+                            </span>
+
+                            <strong id="totalWeight">0 kg</strong>
+
+                        </div>
+
+                        <div class="result-box result-highlight">
+
+                            <span class="result-label">
+                                Peso potencialmente reutilizable
+                            </span>
+
+                            <strong id="reusableWeight">0 kg</strong>
+
+                        </div>
+
+                        <p id="calculatorMessage" aria-live="polite">
+                            Ingresa la cantidad de dispositivos para calcular
+                            su impacto.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <p class="calculator-disclaimer">
+                    Esta herramienta es educativa. Los pesos son estimaciones
+                    aproximadas y no representan mediciones reales ni una
+                    certificación de residuos.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             7. HISTORIA QUE INSPIRA
+        =========================================== -->
+
+        <section id="historia" class="section story-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">07 / HISTORIA QUE INSPIRA</span>
+
+                    <h2>Computadores para Educar: tecnología que transforma oportunidades</h2>
+
+                    <p class="section-description">
+                        Una iniciativa colombiana que demuestra que
+                        los dispositivos tecnológicos pueden tener
+                        nuevas oportunidades de aprovechamiento.
+                    </p>
+
+                </div>
+
+                <div class="story-card">
+
+                    <div class="story-content">
+
+                        <h3>De los equipos recuperados a nuevas oportunidades educativas</h3>
+
+                        <p>
+                            En Colombia, el programa Computadores para Educar
+                            ha trabajado para reducir la brecha digital y
+                            fortalecer las oportunidades educativas mediante
+                            el aprovechamiento de equipos tecnológicos.
+                        </p>
+
+                        <p>
+                            Según una publicación institucional del 22 de
+                            noviembre de 2023, el programa reportó más de
+                            2,6 millones de equipos entregados, más de
+                            332.000 docentes formados y más de 405.000
+                            dispositivos retomados.
+                        </p>
+
+                        <p>
+                            Este tipo de iniciativas demuestra que un
+                            dispositivo no necesariamente pierde todo
+                            su valor cuando deja de ser utilizado por
+                            su primer propietario. Mediante procesos de
+                            recuperación, mantenimiento y aprovechamiento,
+                            algunos equipos pueden contribuir a disminuir
+                            la brecha digital y apoyar nuevos procesos
+                            educativos.
+                        </p>
+
+                        <p>
+                            La experiencia también nos recuerda que la
+                            sostenibilidad no consiste solamente en
+                            reciclar, sino en aprovechar los recursos
+                            existentes y extender su vida útil cuando
+                            las condiciones lo permiten.
+                        </p>
+
+                        <a href="https://www.computadoresparaeducar.gov.co/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link">
+                            Conocer Computadores para Educar
+                            <span uk-icon="icon: arrow-up-right"></span>
+                        </a>
+
+                    </div>
+
+                    <div class="story-stat">
+
+                        <span class="story-stat-number">2,6 M+</span>
+
+                        <strong>Equipos entregados</strong>
+
+                        <p>
+                            Cifra institucional reportada en 2023.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             8. CIERRE Y CRÉDITOS
+        =========================================== -->
+
+        <section id="cierre" class="section closing-section">
+
+            <div class="uk-container">
+
+                <div class="section-heading">
+                    <span class="section-label">08 / CIERRE EDITORIAL</span>
+
+                    <h2>El futuro también depende de lo que hacemos con el pasado</h2>
+                </div>
+
+                <div class="closing-content">
+
+                    <p>
+                        La basura electrónica representa un desafío que
+                        no puede resolverse únicamente mediante nuevas
+                        tecnologías. Requiere educación, responsabilidad
+                        empresarial, participación ciudadana y decisiones
+                        conscientes de consumo.
+                    </p>
+
+                    <p>
+                        A lo largo de este periódico comprendimos que
+                        reparar, reutilizar y entregar correctamente
+                        nuestros dispositivos son acciones que pueden
+                        contribuir a disminuir el impacto ambiental.
+                        También reconocimos que la Ingeniería de Software
+                        tiene oportunidades para crear herramientas que
+                        faciliten la información y la gestión de estos
+                        residuos.
+                    </p>
+
+                    <p>
+                        La tecnología no debe ser solamente sinónimo
+                        de innovación y velocidad. También debe representar
+                        responsabilidad, durabilidad y compromiso con
+                        el entorno.
+                    </p>
+
+                </div>
+
+                <div class="credits-card">
+
+                    <h3>Equipo editorial</h3>
+
+                    <div class="credits-grid">
+
+                        <div class="credit-person">
+                            <span class="credit-initial">JV</span>
+                            <div>
+                                <strong>Juan David Vargas</strong>
+                                <span>Integrante del proyecto</span>
+                            </div>
+                        </div>
+
+                        <div class="credit-person">
+                            <span class="credit-initial">OC</span>
+                            <div>
+                                <strong>Oscar Cerquera</strong>
+                                <span>Integrante del proyecto</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p class="project-credit">
+                        Proyecto académico · Ingeniería de Software
+                        <br>
+                        Universidad Surcolombiana · Neiva, Huila
+                    </p>
+
+                </div>
+
+
+                <!-- DECLARACIÓN DE IA -->
+
+                <div class="ai-disclosure">
+
+                    <h3>Declaración de uso de Inteligencia Artificial</h3>
+
+                    <p>
+                        Durante la elaboración de este periódico se utilizaron
+                        herramientas de Inteligencia Artificial, entre ellas
+                        ChatGPT, como apoyo para organizar ideas, estructurar
+                        contenidos, revisar redacción y proponer elementos
+                        de diseño y programación.
+                    </p>
+
+                    <p>
+                        Los integrantes del proyecto son responsables de
+                        revisar, verificar, adaptar y validar la información
+                        presentada, así como de las decisiones finales
+                        relacionadas con el contenido y el desarrollo
+                        del prototipo.
+                    </p>
+
+                </div>
+
+
+                <!-- FUENTES -->
+
+                <div class="references">
+
+                    <h3>Fuentes y referencias</h3>
+
+                    <ol>
+
+                        <li>
+                            Baldé, C. P., et al. (2024).
+                            <em>The Global E-waste Monitor 2024.</em>
+                            UNITAR y Unión Internacional de Telecomunicaciones.
+                            <a href="https://ewastemonitor.info/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Consultar informe.
+                            </a>
+                        </li>
+
+                        <li>
+                            Ministerio de Ambiente y Desarrollo Sostenible.
+                            <em>Residuos de Aparatos Eléctricos y Electrónicos (RAEE).</em>
+                            <a href="https://www.minambiente.gov.co/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Sitio institucional.
+                            </a>
+                        </li>
+
+                        <li>
+                            Colombia. Congreso de la República.
+                            (2013). <em>Ley 1672 de 2013.</em>
+                            Por la cual se establecen los lineamientos
+                            para la adopción de una política pública
+                            de gestión integral de RAEE.
+                        </li>
+
+                        <li>
+                            Ministerio de Ambiente y Desarrollo Sostenible.
+                            (2022). <em>Resolución 851 de 2022.</em>
+                            Sistemas de recolección y gestión de RAEE.
+                        </li>
+
+                        <li>
+                            Computadores para Educar. (2023).
+                            Información institucional sobre equipos
+                            entregados, docentes formados y dispositivos
+                            retomados.
+                            <a href="https://www.computadoresparaeducar.gov.co/"
+                                target="_blank"
+                                rel="noopener noreferrer">
+                                Sitio institucional.
+                            </a>
+                        </li>
+
+                    </ol>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         PIE DE PÁGINA
+    =========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="uk-container">
+
+            <div class="footer-content">
+
+                <a href="#inicio" class="footer-logo">
+                    ECOBYTE<span>.</span>
+                </a>
+
+                <p>
+                    La tecnología también debe aprender a renovarse.
+                </p>
+
+                <div class="footer-links">
+                    <a href="#reportaje">Reportaje</a>
+                    <a href="#interactivo">Calculadora</a>
+                    <a href="#bug-mes">Bug del mes</a>
+                    <a href="#cierre">Créditos</a>
+                </div>
+
+                <small>
+                    © 2026 ECOBYTE · Proyecto académico de ecología digital.
+                </small>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
