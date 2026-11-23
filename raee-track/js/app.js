@@ -220,3 +220,26 @@ function updateBackToTop() { backToTop.classList.toggle('is-visible', window.scr
 window.addEventListener('scroll', updateBackToTop, { passive: true });
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
 updateBackToTop();
+
+
+// Aparición progresiva de paneles y tarjetas en RAEE TRACK.
+const trackRevealTargets = document.querySelectorAll(".stat-card,.tip-card,.form-panel,.inventory-panel,.chart-panel,.guide-card,.safety-panel");
+const trackReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (trackReduceMotion || !("IntersectionObserver" in window)) {
+  trackRevealTargets.forEach(element => element.classList.add("is-visible"));
+} else {
+  const trackRevealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold:0.1, rootMargin:"0px 0px -35px 0px" });
+  trackRevealTargets.forEach(element => {
+    const siblings = Array.from(element.parentElement?.children || []);
+    const position = Math.max(0,siblings.indexOf(element));
+    element.style.setProperty("--track-delay", `${Math.min(position,4)*70}ms`);
+    element.classList.add("track-reveal");
+    trackRevealObserver.observe(element);
+  });
+}
