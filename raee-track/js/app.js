@@ -198,7 +198,7 @@ document.addEventListener('click', (event) => {
 });
 $('menuToggle').addEventListener('click', () => { const open = $('mainNav').classList.toggle('open'); $('menuToggle').setAttribute('aria-expanded', String(open)); $('menuToggle').setAttribute('aria-label', open ? 'Cerrar navegación' : 'Abrir navegación'); });
 document.addEventListener('click', (event) => { if (!event.target.closest('.nav-inner')) { $('mainNav').classList.remove('open'); $('menuToggle').setAttribute('aria-expanded', 'false'); $('menuToggle').setAttribute('aria-label', 'Abrir navegación'); } });
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { $('mainNav').classList.remove('open'); $('menuToggle').setAttribute('aria-expanded', 'false'); $('menuToggle').setAttribute('aria-label', 'Abrir navegación'); $('menuToggle').focus(); } });
+document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && $('mainNav').classList.contains('open')) { $('mainNav').classList.remove('open'); $('menuToggle').setAttribute('aria-expanded', 'false'); $('menuToggle').setAttribute('aria-label', 'Abrir navegación'); $('menuToggle').focus(); } });
 $('deviceForm').addEventListener('submit', (event) => {
   event.preventDefault();
   const item = { id: $('editId').value || (window.crypto && typeof window.crypto.randomUUID === 'function' ? window.crypto.randomUUID() : `raee-${Date.now()}-${Math.random().toString(16).slice(2)}`), device: $('device').value, category: $('category').value, condition: $('condition').value, quantity: Number($('quantity').value), date: $('date').value, location: $('location').value.trim(), notes: $('notes').value.trim() };
