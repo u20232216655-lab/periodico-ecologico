@@ -2177,3 +2177,23 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     .report-section > .uk-container > .raee-journey .journey-steps { grid-template-columns: 1fr; }
     .report-section > .uk-container > .raee-journey .journey-step { min-height: 0; }
 }
+
+/* MICROINTERACCIONES Y ENTRADAS EDITORIALES ECOBYTE */
+@keyframes editorial-rise { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@keyframes editorial-image-in { from { opacity:0; transform:scale(1.035); } to { opacity:1; transform:scale(1); } }
+.hero-content > * { animation:editorial-rise .72s cubic-bezier(.2,.7,.2,1) both; }
+.hero-content > *:nth-child(1) { animation-delay:.06s; }
+.hero-content > *:nth-child(2) { animation-delay:.16s; }
+.hero-content > *:nth-child(3) { animation-delay:.26s; }
+.hero-content > *:nth-child(4) { animation-delay:.36s; }
+.hero-visual { animation:editorial-image-in 1s cubic-bezier(.2,.7,.2,1) both; }
+.reveal-on-scroll { opacity:0; transform:translateY(22px); transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1); transition-delay:var(--reveal-delay,0ms); will-change:opacity,transform; }
+.reveal-on-scroll.is-revealed { opacity:1; transform:translateY(0); }
+.fact-card,.journey-step,.info-card,.voice-card,.debate-card,.credits-card,.campaign-feature,.story-card,.bug-card,.cifra-card { transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease; }
+.info-card:hover,.voice-card:hover,.debate-card:hover,.journey-step:hover,.credits-card:hover,.story-card:hover { transform:translateY(-5px); box-shadow:0 16px 34px rgba(23,39,30,.09); }
+.article-visual img,.voice-image img,.story-image img,.info-card img,.bug-image img,.impact-photo { transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s ease; }
+.article-visual:hover img,.voice-card:hover .voice-image img,.story-card:hover .story-image img,.info-card:hover img,.bug-card:hover .bug-image img { transform:scale(1.025); }
+@media (prefers-reduced-motion:reduce) {
+ *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
+ .reveal-on-scroll { opacity:1!important; transform:none!important; transition:none!important; will-change:auto; }
+}
