@@ -2762,3 +2762,97 @@ button:disabled { cursor: not-allowed; opacity: .6; }
         overflow-wrap: anywhere !important;
     }
 }
+
+
+/* ECOBYTE PDF — flujo continuo y protección de encabezados huérfanos */
+@media print {
+    /* Todas las secciones fluyen; solo la portada conserva página propia. */
+    #reportaje,
+    #ia-carrera,
+    #voces,
+    #debate,
+    #noticia-impacto,
+    #bug-mes,
+    #cifra-dia,
+    #interactivo,
+    #historia,
+    #cierre {
+        break-before: auto !important;
+        page-break-before: auto !important;
+        break-after: auto !important;
+        page-break-after: auto !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+    }
+
+    #inicio {
+        break-after: page !important;
+        page-break-after: always !important;
+    }
+
+    /* Mantener cada encabezado junto a su firma y el contenido que presenta. */
+    .section-heading {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        margin-bottom: 3mm !important;
+    }
+    .editorial-byline {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        margin-top: 2mm !important;
+        margin-bottom: 4mm !important;
+    }
+    h2, h3, h4 {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+
+    /* Evitar que el bloque de impacto y su hoja de ruta creen huecos grandes. */
+    #noticia-impacto {
+        padding-top: 4mm !important;
+        padding-bottom: 3mm !important;
+    }
+    #noticia-impacto .impact-card {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        margin-bottom: 4mm !important;
+    }
+    #noticia-impacto .project-roadmap {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        margin-top: 4mm !important;
+        padding-top: 4mm !important;
+        padding-bottom: 4mm !important;
+    }
+    #noticia-impacto .roadmap-grid {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+    }
+    #noticia-impacto .roadmap-step {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* No dejar una firma o un subtítulo aislado al final de la hoja. */
+    .section-heading + .editorial-byline {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+    }
+
+    /* Reducir márgenes verticales acumulados entre secciones consecutivas. */
+    .section {
+        margin-block: 0 !important;
+    }
+    #bug-mes,
+    #cifra-dia,
+    #interactivo,
+    #historia,
+    #cierre {
+        padding-top: 4mm !important;
+        padding-bottom: 4mm !important;
+    }
+}
