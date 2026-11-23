@@ -126,22 +126,19 @@ document.addEventListener("DOMContentLoaded", () => {
             else calculatorMessage.textContent = `Tus dispositivos representan aproximadamente ${formatWeight(total)} kg. Con un potencial de reutilización del ${percentage}%, podrían aprovecharse ${formatWeight(reusable)} kg.`;
         }
     }
+    // Los resultados solo cambian cuando el usuario pulsa el botón.
+    // El control deslizante actualiza únicamente su etiqueta y su indicador visual.
     [phonesInput, computersInput, tabletsInput].forEach(input => {
-        input?.addEventListener("input", () => {
-            if (input && input.value.trim() !== "") {
-                const safeQuantity = getSafeQuantity(input);
-                if (Number(input.value) !== safeQuantity) input.value = String(safeQuantity);
-            }
-            calculateImpact();
-        });
         input?.addEventListener("change", () => {
             if (input) input.value = String(getSafeQuantity(input));
-            calculateImpact();
         });
     });
-    reuseInput?.addEventListener("input", calculateImpact);
+    reuseInput?.addEventListener("input", () => updateReuseLabel());
     calculateButton?.addEventListener("click", calculateImpact);
-    calculateImpact();
+
+    updateReuseLabel();
+    if (calculatorBreakdown) calculatorBreakdown.textContent = "Completa las cantidades y pulsa «Calcular impacto».";
+    if (calculatorMessage) calculatorMessage.textContent = "Ingresa tus dispositivos, ajusta el porcentaje de reutilización y calcula para conocer el peso total estimado y el material potencialmente aprovechable.";
 
 
     // 3. GRÁFICO INTERACTIVO: LA CIFRA DEL DÍA
