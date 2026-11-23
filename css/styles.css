@@ -353,6 +353,12 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); }
 .report-section .section-heading { max-width: 850px; }
 .main-article {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+.article-reading-grid {
+    display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(260px, .72fr);
     gap: 28px 60px;
     align-items: start;
@@ -830,8 +836,8 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     .hero-section h1 { font-size: clamp(3rem, 6.2vw, 4.8rem); }
     .hero-visual, .hero-visual img { min-height: 430px; height: 430px; }
     .hero-floating-stat { left: -15px; }
-    .main-article { grid-template-columns: 1fr; }
-    .article-quote { max-width: 650px; }
+    .article-reading-grid { grid-template-columns: 1fr; }
+    .article-quote { position: static; top: auto; max-width: 650px; }
     .impact-card { grid-template-columns: 1fr; }
     .impact-visual { max-width: 650px; }
 }
