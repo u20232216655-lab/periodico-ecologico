@@ -1800,3 +1800,274 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     .roadmap-note { grid-template-columns: 1fr; gap: 7px; padding: 16px; }
     .roadmap-step { padding: 18px 15px; }
 }
+
+
+/* Infografía editorial: recorrido responsable de los aparatos electrónicos */
+.raee-journey {
+    margin: clamp(34px, 5vw, 58px) 0 12px;
+    padding: clamp(24px, 4vw, 42px);
+    border: 1px solid var(--line);
+    background: #e9eee5;
+}
+.journey-heading { max-width: 720px; margin-bottom: 30px; }
+.journey-kicker {
+    color: var(--green);
+    font-family: var(--display);
+    font-size: .66rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+.journey-heading h3 {
+    margin: 10px 0 12px;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+    font-weight: 400;
+    line-height: 1.08;
+}
+.journey-heading p {
+    max-width: 650px;
+    margin: 0;
+    color: #58665b;
+    font-size: .9rem;
+    line-height: 1.75;
+}
+.journey-steps {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.journey-step {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 265px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 19px 17px 17px;
+    border: 1px solid rgba(23,75,53,.14);
+    background: rgba(255,255,255,.83);
+}
+.journey-number {
+    color: #84917f;
+    font-family: var(--display);
+    font-size: .7rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+}
+.journey-symbol {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    margin: 15px 0 17px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--green-soft);
+    color: var(--green);
+    font-family: var(--display);
+    font-size: 1.65rem;
+    font-weight: 700;
+}
+.journey-step h4 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-family: var(--display);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.journey-step p {
+    margin: 0 0 18px;
+    color: #59665d;
+    font-size: .78rem;
+    line-height: 1.65;
+}
+.journey-action {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    color: var(--green);
+    font-family: var(--display);
+    font-size: .58rem;
+    font-weight: 800;
+    letter-spacing: .09em;
+}
+.journey-final {
+    border-color: rgba(23,75,53,.35);
+    background: var(--green-deep);
+}
+.journey-final .journey-number { color: rgba(255,255,255,.55); }
+.journey-final .journey-symbol { background: rgba(199,227,106,.15); color: var(--lime); }
+.journey-final h4 { color: white; }
+.journey-final p { color: rgba(255,255,255,.76); }
+.journey-final .journey-action { border-color: rgba(255,255,255,.2); color: var(--lime); }
+.journey-footnote {
+    margin: 17px 0 0;
+    padding-left: 13px;
+    border-left: 2px solid var(--lime-dark);
+    color: #59665d;
+    font-size: .74rem;
+    line-height: 1.65;
+}
+.journey-footnote strong { color: var(--green-deep); }
+@media (max-width: 900px) {
+    .journey-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .journey-step { min-height: 235px; }
+}
+@media (max-width: 560px) {
+    .raee-journey { padding: 22px 16px; }
+    .journey-steps { grid-template-columns: 1fr; gap: 9px; }
+    .journey-step {
+        display: grid;
+        min-height: 0;
+        grid-template-columns: 42px minmax(0, 1fr);
+        column-gap: 12px;
+        padding: 15px;
+    }
+    .journey-number { grid-column: 1; grid-row: 1; padding-top: 5px; }
+    .journey-symbol { grid-column: 1; grid-row: 2 / span 3; width: 38px; height: 38px; margin: 6px 0 0; }
+    .journey-step h4, .journey-step p, .journey-action { grid-column: 2; }
+    .journey-step h4 { grid-row: 1; }
+    .journey-step p { grid-row: 2; margin-bottom: 10px; }
+    .journey-action { grid-row: 3; margin-top: 0; }
+}
+
+/* Campaña editorial: pieza gráfica integrada al cierre del periódico */
+.campaign-feature {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto 46px;
+    padding: clamp(24px, 4vw, 42px);
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 88% 8%, rgba(199,227,106,.17), transparent 27%),
+        var(--green-deep);
+    color: white;
+}
+.campaign-topline, .campaign-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.campaign-topline {
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    color: var(--lime);
+    font-family: var(--display);
+    font-size: .62rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+}
+.campaign-main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(220px, .7fr);
+    align-items: end;
+    gap: 28px;
+    padding: clamp(28px, 5vw, 54px) 0 34px;
+}
+.campaign-overline {
+    grid-column: 1 / -1;
+    margin: 0 0 -18px;
+    color: rgba(255,255,255,.66);
+    font-family: var(--display);
+    font-size: .67rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+.campaign-main h3 {
+    margin: 0;
+    color: white;
+    font-family: var(--display);
+    font-size: clamp(3.6rem, 10vw, 8rem);
+    font-weight: 800;
+    letter-spacing: -.095em;
+    line-height: .78;
+}
+.campaign-main h3 em {
+    color: var(--lime);
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -.07em;
+}
+.campaign-lead {
+    max-width: 330px;
+    margin: 0 0 4px;
+    color: rgba(255,255,255,.8);
+    font-family: var(--serif);
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.38;
+}
+.campaign-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+.campaign-actions article {
+    min-width: 0;
+    padding: 20px 19px 22px;
+}
+.campaign-actions article + article { border-left: 1px solid rgba(255,255,255,.2); }
+.campaign-actions article > span {
+    color: var(--lime);
+    font-family: var(--display);
+    font-size: .6rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+}
+.campaign-actions h4 {
+    margin: 12px 0 8px;
+    color: white;
+    font-family: var(--display);
+    font-size: 1rem;
+    font-weight: 700;
+}
+.campaign-actions p {
+    margin: 0;
+    color: rgba(255,255,255,.7);
+    font-size: .77rem;
+    line-height: 1.7;
+}
+.campaign-footer { padding-top: 23px; }
+.campaign-footer strong {
+    color: white;
+    font-family: var(--serif);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+}
+.campaign-footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    flex: 0 0 auto;
+    padding: 10px 14px;
+    border: 1px solid rgba(199,227,106,.65);
+    color: var(--lime);
+    font-size: .75rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+}
+.campaign-footer a:hover { background: var(--lime); color: var(--green-deep); }
+.campaign-footer a:focus-visible { outline: 3px solid white; outline-offset: 3px; }
+@media (max-width: 760px) {
+    .campaign-main { grid-template-columns: 1fr; gap: 24px; }
+    .campaign-overline { margin-bottom: -8px; }
+    .campaign-lead { max-width: 520px; }
+}
+@media (max-width: 560px) {
+    .campaign-feature { padding: 22px 17px; }
+    .campaign-topline { font-size: .53rem; }
+    .campaign-actions { grid-template-columns: 1fr; }
+    .campaign-actions article { padding: 16px 4px; }
+    .campaign-actions article + article { border-top: 1px solid rgba(255,255,255,.2); border-left: 0; }
+    .campaign-actions h4 { margin: 7px 0 5px; }
+    .campaign-footer { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .campaign-footer a { transition: none; }
+}
