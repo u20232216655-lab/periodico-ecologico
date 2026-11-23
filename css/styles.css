@@ -1566,4 +1566,4 @@ button:disabled { cursor: not-allowed; opacity: .6; }
 .back-to-top:hover{background:var(--green-deep);color:var(--lime)}
 .back-to-top:focus-visible{outline:3px solid var(--lime-dark);outline-offset:3px}
 @media(max-width:640px){.back-to-top{right:15px;bottom:15px;width:42px;height:42px}}
-@media(prefers-reduced-motion:reduce){.reading-progress span,.back-to-top{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reading-progress span,.back-to-top{transition:none}}
