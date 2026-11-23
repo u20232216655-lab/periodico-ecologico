@@ -2749,3 +2749,16 @@ button:disabled { cursor: not-allowed; opacity: .6; }
         overflow-wrap: anywhere !important;
     }
 }
+
+/* Enlace absoluto al repositorio: solo aparece en la versión PDF. */
+.impact-pdf-link { display: none !important; }
+@media print {
+    .impact-pdf-link {
+        display: inline-block !important;
+        margin-top: 4mm !important;
+        color: #fff !important;
+        font-size: 9pt !important;
+        text-decoration: underline !important;
+        overflow-wrap: anywhere !important;
+    }
+}
