@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ? "Aún no has agregado dispositivos."
             : `${phones} celulares · ${computers} computadores · ${tablets} tabletas`;
         if (calculatorMessage) {
-            if (total === 0) calculatorMessage.textContent = "Agrega las cantidades de tus dispositivos. El cálculo se actualizará automáticamente.";
+            if (total === 0) calculatorMessage.textContent = "Agrega las cantidades de tus dispositivos y pulsa «Calcular impacto» para obtener el resultado.";
             else if (percentage === 0) calculatorMessage.textContent = `Tu inventario representa aproximadamente ${formatWeight(total)} kg. Con 0% de reutilización potencial, no se estima material aprovechable.`;
             else if (percentage === 100) calculatorMessage.textContent = `Tu inventario representa aproximadamente ${formatWeight(total)} kg. Si todos los equipos pudieran reutilizarse, ese sería el peso potencialmente aprovechable.`;
             else calculatorMessage.textContent = `Tus dispositivos representan aproximadamente ${formatWeight(total)} kg. Con un potencial de reutilización del ${percentage}%, podrían aprovecharse ${formatWeight(reusable)} kg.`;
