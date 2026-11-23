@@ -12,27 +12,58 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. NAVEGACIÓN Y MENÚ
     // ======================================
 
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navbarDropdown = document.querySelector(".nav-dropdown");
+
+    function closeNavigationMenu() {
+        if (!menuToggle || !navbarDropdown) return;
+
+        navbarDropdown.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menú");
+    }
+
+    function toggleNavigationMenu() {
+        if (!menuToggle || !navbarDropdown) return;
+
+        const isOpen = navbarDropdown.classList.toggle("is-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute(
+            "aria-label",
+            isOpen ? "Cerrar menú" : "Abrir menú"
+        );
+    }
+
+    menuToggle?.addEventListener("click", toggleNavigationMenu);
+
     const navigationLinks = document.querySelectorAll(
         '.nav-dropdown a[href^="#"], .footer-links a[href^="#"], .hero-actions a[href^="#"]'
     );
 
     navigationLinks.forEach(link => {
         link.addEventListener("click", () => {
-            const navbarDropdown = document.querySelector(".nav-dropdown");
-
-            // Cerrar el menú desplegable en móviles, si UIkit está disponible
-            if (
-                navbarDropdown &&
-                typeof UIkit !== "undefined" &&
-                window.innerWidth <= 768
-            ) {
-                const dropdown = UIkit.dropdown(navbarDropdown);
-
-                if (dropdown) {
-                    dropdown.hide();
-                }
+            if (link.closest(".nav-dropdown")) {
+                closeNavigationMenu();
             }
         });
+    });
+
+    document.addEventListener("click", event => {
+        if (
+            navbarDropdown &&
+            menuToggle &&
+            !navbarDropdown.contains(event.target) &&
+            !menuToggle.contains(event.target)
+        ) {
+            closeNavigationMenu();
+        }
+    });
+
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            closeNavigationMenu();
+            menuToggle?.focus();
+        }
     });
 
 
@@ -244,8 +275,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     label: "Miles de toneladas",
                     data: values,
 
-                    backgroundColor: "#2D7542",
-                    hoverBackgroundColor: "#B7E34B",
+                    backgroundColor: "#174B35",
+                    hoverBackgroundColor: "#C7E36A",
 
                     borderRadius: 8,
                     borderSkipped: false,
@@ -283,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         },
 
                         ticks: {
-                            color: "#68796D"
+                            color: "#657168"
                         }
                     },
 
@@ -293,7 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         title: {
                             display: true,
                             text: "Miles de toneladas",
-                            color: "#20332A"
+                            color: "#17271E"
                         },
 
                         ticks: {
@@ -301,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         },
 
                         grid: {
-                            color: "#EAF0E7"
+                            color: "#E3E9DF"
                         }
                     }
                 }
