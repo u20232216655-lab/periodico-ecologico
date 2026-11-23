@@ -75,106 +75,69 @@ document.addEventListener("DOMContentLoaded", () => {
     const computersInput = document.getElementById("computers");
     const tabletsInput = document.getElementById("tablets");
     const reuseInput = document.getElementById("reuse");
-
     const calculateButton = document.getElementById("calculateButton");
-
     const reuseValue = document.getElementById("reuseValue");
     const totalWeight = document.getElementById("totalWeight");
     const reusableWeight = document.getElementById("reusableWeight");
     const calculatorMessage = document.getElementById("calculatorMessage");
-
-    const deviceWeights = {
-        phone: 0.2,
-        computer: 2,
-        tablet: 0.5
-    };
+    const reuseMeter = document.getElementById("reuseMeter");
+    const reuseMeterFill = document.getElementById("reuseMeterFill");
+    const reuseMeterLabel = document.getElementById("reuseMeterLabel");
+    const calculatorBreakdown = document.getElementById("calculatorBreakdown");
+    const deviceWeights = { phone: 0.2, computer: 2, tablet: 0.5 };
+    const weightFormatter = new Intl.NumberFormat("es-CO", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
 
     function getSafeQuantity(input) {
-        if (!input) return 0;
-
+        if (!input || input.value.trim() === "") return 0;
         const value = Number(input.value);
-
         if (!Number.isFinite(value)) return 0;
-
         return Math.min(100, Math.max(0, Math.floor(value)));
     }
-
     function getSafePercentage(input) {
         if (!input) return 0;
-
         const value = Number(input.value);
-
         if (!Number.isFinite(value)) return 0;
-
         return Math.min(100, Math.max(0, value));
     }
-
-    function updateReuseLabel() {
-        if (!reuseValue || !reuseInput) return;
-
-        reuseValue.textContent = `${getSafePercentage(reuseInput)}%`;
+    function formatWeight(value) { return weightFormatter.format(value); }
+    function updateReuseLabel(percentage = getSafePercentage(reuseInput)) {
+        if (reuseValue) reuseValue.textContent = `${percentage}%`;
+        if (reuseMeterLabel) reuseMeterLabel.textContent = `${percentage}%`;
+        if (reuseMeter) reuseMeter.setAttribute("aria-valuenow", String(percentage));
+        if (reuseMeterFill) reuseMeterFill.style.width = `${percentage}%`;
     }
-
     function calculateImpact() {
         const phones = getSafeQuantity(phonesInput);
         const computers = getSafeQuantity(computersInput);
         const tablets = getSafeQuantity(tabletsInput);
-
         const percentage = getSafePercentage(reuseInput);
-
-        const total =
-            phones * deviceWeights.phone +
-            computers * deviceWeights.computer +
-            tablets * deviceWeights.tablet;
-
+        const total = phones * deviceWeights.phone + computers * deviceWeights.computer + tablets * deviceWeights.tablet;
         const reusable = total * (percentage / 100);
-
-        // Actualizar los resultados
-        if (totalWeight) {
-            totalWeight.textContent = `${total.toFixed(2)} kg`;
-        }
-
-        if (reusableWeight) {
-            reusableWeight.textContent = `${reusable.toFixed(2)} kg`;
-        }
-
-        updateReuseLabel();
-
+        if (totalWeight) totalWeight.textContent = `${formatWeight(total)} kg`;
+        if (reusableWeight) reusableWeight.textContent = `${formatWeight(reusable)} kg`;
+        updateReuseLabel(percentage);
+        if (calculatorBreakdown) calculatorBreakdown.textContent = total === 0
+            ? "Aún no has agregado dispositivos."
+            : `${phones} celulares · ${computers} computadores · ${tablets} tabletas`;
         if (calculatorMessage) {
-
-            if (total === 0) {
-                calculatorMessage.textContent =
-                    "Ingresa la cantidad de dispositivos para calcular su impacto.";
-
-            } else {
-                calculatorMessage.textContent =
-                    `Tus dispositivos representan aproximadamente ${total.toFixed(2)} kg ` +
-                    `de residuos electrónicos. Con una posibilidad de reutilización ` +
-                    `del ${percentage}%, podrías aprovechar ${reusable.toFixed(2)} kg.`;
-            }
+            if (total === 0) calculatorMessage.textContent = "Agrega las cantidades de tus dispositivos. El cálculo se actualizará automáticamente.";
+            else if (percentage === 0) calculatorMessage.textContent = `Tu inventario representa aproximadamente ${formatWeight(total)} kg. Con 0% de reutilización potencial, no se estima material aprovechable.`;
+            else if (percentage === 100) calculatorMessage.textContent = `Tu inventario representa aproximadamente ${formatWeight(total)} kg. Si todos los equipos pudieran reutilizarse, ese sería el peso potencialmente aprovechable.`;
+            else calculatorMessage.textContent = `Tus dispositivos representan aproximadamente ${formatWeight(total)} kg. Con un potencial de reutilización del ${percentage}%, podrían aprovecharse ${formatWeight(reusable)} kg.`;
         }
     }
-
-    // Eventos del botón y campos
-    calculateButton?.addEventListener("click", calculateImpact);
-
     [phonesInput, computersInput, tabletsInput].forEach(input => {
-        input?.addEventListener("input", () => {
-            // Limitar cantidades entre 0 y 100
-            const value = Number(input.value);
-
-            if (value < 0) input.value = 0;
-            if (value > 100) input.value = 100;
+        input?.addEventListener("input", calculateImpact);
+        input?.addEventListener("change", () => {
+            if (input) input.value = String(getSafeQuantity(input));
+            calculateImpact();
         });
     });
-
-    reuseInput?.addEventListener("input", updateReuseLabel);
-
-    // Calcular resultados iniciales
+    reuseInput?.addEventListener("input", calculateImpact);
+    calculateButton?.addEventListener("click", calculateImpact);
     calculateImpact();
 
 
-    // ======================================
     // 3. GRÁFICO INTERACTIVO: LA CIFRA DEL DÍA
     // ======================================
 
@@ -349,6 +312,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // ======================================
+    // 4. EXPERIENCIA DE LECTURA
+    const readingProgressBar = document.getElementById("readingProgressBar");
+    const backToTop = document.getElementById("backToTop");
+    const editorialSections = document.querySelectorAll("main > section[id]");
+    const sectionLinks = document.querySelectorAll('.nav-dropdown a[href^="#"]');
+
+    function updateReadingProgress() {
+        const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+        if (readingProgressBar) readingProgressBar.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+        if (backToTop) backToTop.classList.toggle("is-visible", window.scrollY > 520);
+    }
+    window.addEventListener("scroll", updateReadingProgress, { passive: true });
+    window.addEventListener("resize", updateReadingProgress);
+    updateReadingProgress();
+    backToTop?.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    if ("IntersectionObserver" in window && editorialSections.length && sectionLinks.length) {
+        const sectionObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                sectionLinks.forEach(link => {
+                    const active = link.getAttribute("href") === `#${entry.target.id}`;
+                    link.classList.toggle("is-current", active);
+                    if (active) link.setAttribute("aria-current", "location");
+                    else link.removeAttribute("aria-current");
+                });
+            });
+        }, { rootMargin: "-22% 0px -62% 0px", threshold: 0 });
+        editorialSections.forEach(section => sectionObserver.observe(section));
+    }
+
     // 4. AÑO AUTOMÁTICO EN EL PIE DE PÁGINA
     // ======================================
 
