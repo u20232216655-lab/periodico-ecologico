@@ -313,6 +313,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // Crear el gráfico al cargar la página
     updateRaeeChart();
 
+    // Preparar Chart.js para la captura del navegador al imprimir o guardar PDF.
+    window.addEventListener("beforeprint", () => {
+        if (!raeeChart) return;
+        raeeChart.options.animation = false;
+        raeeChart.resize();
+        raeeChart.update("none");
+    });
+
+    window.addEventListener("afterprint", () => {
+        if (!raeeChart) return;
+        raeeChart.options.animation = { duration: 650 };
+        raeeChart.resize();
+        raeeChart.update("none");
+    });
+
 
     // ======================================
     // 4. EXPERIENCIA DE LECTURA
