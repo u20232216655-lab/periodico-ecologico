@@ -4,6 +4,12 @@
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="RAEE TRACK: prototipo educativo para registrar y clasificar residuos de aparatos eléctricos y electrónicos.">
   <meta name="theme-color" content="#071810">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="RAEE TRACK | ECOBYTE">
+  <meta property="og:description" content="Prototipo educativo para registrar, clasificar y consultar residuos de aparatos eléctricos y electrónicos.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&amp;fit=crop&amp;w=1200&amp;q=85">
+  <meta name="twitter:card" content="summary_large_image">
   <title>RAEE TRACK | ECOBYTE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +20,7 @@
 <a class="skip-link" href="#mainContent">Saltar al contenido</a>
 <header class="topbar"><div class="uk-container uk-container-large nav-inner">
   <a class="brand" href="#inicio" aria-label="RAEE TRACK inicio"><span>RAEE</span> TRACK <small>ECOBYTE</small></a>
-  <button class="menu-toggle" id="menuToggle" aria-label="Abrir navegación" aria-expanded="false" aria-controls="mainNav">☰</button>
+  <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir navegación" aria-expanded="false" aria-controls="mainNav">☰</button>
   <nav id="mainNav" class="main-nav" aria-label="Navegación principal">
     <a href="#inicio" class="nav-link active" data-view="inicio">Inicio</a><a href="#registrar" class="nav-link" data-view="registrar">Registrar</a><a href="#inventario" class="nav-link" data-view="inventario">Inventario</a><a href="#reportes" class="nav-link" data-view="reportes">Reportes</a><a href="#guia" class="nav-link" data-view="guia">Guía RAEE</a>
   </nav>
@@ -52,16 +58,16 @@
   </section>
 
   <section class="view" id="view-inventario">
-    <div class="page-title page-title-row"><div><span class="eyebrow">CONTROL DE DISPOSITIVOS</span><h1>Inventario</h1><p>Consulta, filtra, edita o elimina tus registros.</p></div><button class="btn-primary" data-view="registrar">＋ Nuevo registro</button></div>
+    <div class="page-title page-title-row"><div><span class="eyebrow">CONTROL DE DISPOSITIVOS</span><h1>Inventario</h1><p>Consulta, filtra, edita o elimina tus registros.</p></div><button type="button" class="btn-primary" data-view="registrar">＋ Nuevo registro</button></div>
     <div class="panel inventory-panel"><div class="filter-row"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar dispositivo, ubicación..."></label><select id="filterCategory" aria-label="Filtrar por categoría"><option value="">Todas las categorías</option><option>Equipos pequeños</option><option>Equipos grandes</option><option>Pantallas</option><option>Pequeños equipos informáticos</option><option>Intercambio de temperatura</option><option>Lámparas</option><option>Otra categoría</option></select><select id="filterCondition" aria-label="Filtrar por estado"><option value="">Todos los estados</option><option value="Funciona">Funciona</option><option value="Reparable">Reparable</option><option value="Dañado">Dañado</option></select></div>
-      <div class="table-wrap"><table class="data-table"><thead><tr><th>Dispositivo</th><th>Categoría</th><th>Estado</th><th>Cantidad</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody id="inventoryBody"></tbody></table></div><div id="inventoryEmpty" class="empty-state">No hay registros que coincidan con la búsqueda.</div><div class="inventory-foot"><span id="inventoryCount">0 registros</span><button id="exportCsv" class="btn-outline">↓ Exportar CSV</button></div></div>
+      <div class="table-wrap"><table class="data-table"><thead><tr><th>Dispositivo</th><th>Categoría</th><th>Estado</th><th>Cantidad</th><th>Fecha</th><th>Acciones</th></tr></thead><tbody id="inventoryBody"></tbody></table></div><div id="inventoryEmpty" class="empty-state">No hay registros que coincidan con la búsqueda.</div><div class="inventory-foot"><span id="inventoryCount">0 registros</span><button type="button" id="exportCsv" class="btn-outline">↓ Exportar CSV</button></div></div>
   </section>
 
   <section class="view" id="view-reportes">
     <div class="page-title"><span class="eyebrow">ANÁLISIS DEL INVENTARIO</span><h1>Reportes</h1><p>Visualiza cómo se distribuyen los dispositivos registrados.</p></div>
     <div class="report-summary"><div><span>UNIDADES REGISTRADAS</span><strong id="reportTotal">0</strong></div><div><span>CATEGORÍAS UTILIZADAS</span><strong id="reportCategories">0</strong></div><div><span>REGISTROS CREADOS</span><strong id="reportEntries">0</strong></div></div>
     <div class="charts-grid"><article class="panel chart-panel"><div class="panel-head"><div><span class="eyebrow">POR ESTADO</span><h3>Condición de los equipos</h3></div></div><div class="chart-area"><canvas id="conditionChart" aria-label="Gráfico de dispositivos por estado"></canvas><p class="chart-fallback" id="conditionFallback">Registra dispositivos para generar el gráfico.</p></div></article><article class="panel chart-panel"><div class="panel-head"><div><span class="eyebrow">POR CATEGORÍA</span><h3>Distribución de RAEE</h3></div></div><div class="chart-area"><canvas id="categoryChart" aria-label="Gráfico de dispositivos por categoría"></canvas><p class="chart-fallback" id="categoryFallback">Registra dispositivos para generar el gráfico.</p></div></article></div>
-    <div class="export-note"><span>↗</span><div><strong>¿Necesitas conservar los resultados?</strong><p>Exporta el inventario en formato CSV para abrirlo en una hoja de cálculo.</p></div><button class="btn-outline" id="exportCsvReport">Exportar datos</button></div>
+    <div class="export-note"><span>↗</span><div><strong>¿Necesitas conservar los resultados?</strong><p>Exporta el inventario en formato CSV para abrirlo en una hoja de cálculo.</p></div><button type="button" class="btn-outline" id="exportCsvReport">Exportar datos</button></div>
   </section>
 
   <section class="view" id="view-guia">
