@@ -162,9 +162,9 @@ function exportCsv() {
   const rows = devices.map((item) => [item.device, item.category, item.condition, item.quantity, item.date, item.location, item.notes]);
   const safeRows = rows.map((row) => row.map((value) => {
     const text = String(value);
-    return /^[\\s]*[=+@\\-\\t\\r]/.test(text) ? `'${text}` : text;
+    return /^[\s]*[=+@\-\t\r]/.test(text) ? `'${text}` : text;
   }));
-  const csv = [columns, ...safeRows].map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(';')).join('\\r\\n');
+  const csv = [columns, ...safeRows].map((row) => row.map((value) => `"${String(value).replace(/"/g, '""')}"`).join(';')).join('\r\n');
   const blob = new Blob(['\\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
