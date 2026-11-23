@@ -2222,3 +2222,276 @@ button:disabled { cursor: not-allowed; opacity: .6; }
  *,*::before,*::after { scroll-behavior:auto!important; animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
  .reveal-on-scroll { opacity:1!important; transform:none!important; transition:none!important; will-change:auto; }
 }
+
+
+/* =========================================================
+   ECOBYTE — HOJA DE ESTILOS PARA IMPRESIÓN / PDF
+   Optimizada para Ctrl + P / Guardar como PDF
+   ========================================================= */
+@page {
+    size: A4 portrait;
+    margin: 13mm 12mm 14mm;
+}
+
+@media print {
+    :root {
+        --paper: #ffffff;
+        --paper-strong: #f3f4ee;
+        --surface: #ffffff;
+        --ink: #17271e;
+        --muted: #4f5c53;
+    }
+
+    html, body {
+        width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        color: #17271e !important;
+        font-size: 9.5pt !important;
+        line-height: 1.48 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .site-header,
+    .site-footer,
+    .back-to-top,
+    .menu-toggle,
+    .nav-dropdown,
+    .hero-actions,
+    .impact-button,
+    #calculateButton,
+    .skip-link {
+        display: none !important;
+    }
+
+    .uk-container {
+        width: 100% !important;
+        max-width: none !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .section {
+        padding: 9mm 0 !important;
+        overflow: visible !important;
+        break-inside: auto;
+    }
+
+    .section-heading {
+        max-width: none !important;
+        margin: 0 0 7mm !important;
+    }
+
+    .section-heading h2 {
+        margin-bottom: 3mm !important;
+        font-size: 25pt !important;
+        line-height: 1.04 !important;
+    }
+
+    .section-description {
+        font-size: 10pt !important;
+        line-height: 1.5 !important;
+    }
+
+    .section-label {
+        margin-bottom: 3mm !important;
+        font-size: 7pt !important;
+    }
+
+    /* Cada gran bloque editorial comienza en una página nueva. */
+    #reportaje,
+    #ia-carrera,
+    #voces,
+    #debate,
+    #noticia-impacto,
+    #bug-mes,
+    #interactivo,
+    #historia,
+    #cierre {
+        break-before: page !important;
+        page-break-before: always !important;
+    }
+
+    /* Portada */
+    .hero-section {
+        min-height: 0 !important;
+        padding: 8mm 0 5mm !important;
+        break-after: page;
+        page-break-after: always;
+    }
+
+    .hero-section > .uk-container {
+        grid-template-columns: 1fr 0.82fr !important;
+        gap: 8mm !important;
+    }
+
+    .hero-content { padding: 0 !important; }
+    .hero-top { margin-bottom: 7mm !important; gap: 2mm !important; }
+    .hero-section h1 { font-size: 37pt !important; line-height: .98 !important; }
+    .hero-description { font-size: 9pt !important; }
+    .hero-stat { gap: 3mm !important; }
+    .hero-stat-number { font-size: 32pt !important; }
+    .hero-visual { min-height: 0 !important; }
+    .hero-visual img {
+        height: 112mm !important;
+        max-height: 112mm !important;
+        object-fit: cover !important;
+    }
+    .hero-floating-stat { top: 6mm !important; left: -4mm !important; padding: 3mm !important; }
+    .hero-bottom { padding-top: 4mm !important; font-size: 6pt !important; }
+
+    /* Reportaje e infografía */
+    .main-article { display: block !important; }
+    .article-reading-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 5mm !important;
+    }
+    .article-intro { grid-column: auto !important; }
+    .article-lead { font-size: 15pt !important; line-height: 1.4 !important; }
+    .article-visual img {
+        max-height: 75mm !important;
+        object-fit: cover !important;
+    }
+    .article-content { max-width: none !important; }
+    .article-content p { margin-bottom: 3mm !important; line-height: 1.55 !important; }
+    .article-subheading { margin: 5mm 0 2mm !important; }
+    .article-quote {
+        position: static !important;
+        margin: 3mm 0 !important;
+        padding: 5mm !important;
+    }
+    .article-quote p { font-size: 13pt !important; }
+    .article-facts { margin-top: 5mm !important; }
+    .fact-card { padding: 4mm !important; }
+    .fact-card strong { font-size: 19pt !important; }
+
+    .raee-journey {
+        margin-top: 7mm !important;
+        padding: 6mm !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+    .report-section > .uk-container > .raee-journey .journey-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 3mm !important;
+    }
+    .report-section > .uk-container > .raee-journey .journey-step {
+        min-height: 0 !important;
+        padding: 4mm !important;
+    }
+
+    /* Tarjetas y columnas: evitar cortes a mitad de contenido. */
+    .info-card,
+    .voice-card,
+    .interview-card,
+    .debate-card,
+    .bug-card,
+    .cifra-card,
+    .chart-container,
+    .calculator-card,
+    .story-card,
+    .credits-card,
+    .campaign-feature,
+    .project-roadmap,
+    .roadmap-step,
+    .journey-step,
+    .fact-card {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    .info-card { height: auto !important; padding: 5mm !important; }
+    .info-card img { max-height: 48mm !important; object-fit: cover !important; }
+    .voices-grid, .debate-position { gap: 5mm !important; }
+    .voice-image { height: 55mm !important; }
+    .voice-content { padding: 5mm !important; }
+    .debate-card { padding: 6mm !important; }
+    .debate-author { padding-top: 4mm !important; }
+    .debate-author img { width: 13mm !important; height: 13mm !important; flex-basis: 13mm !important; }
+
+    /* Bloque RAEE TRACK y proyección */
+    .impact-section {
+        background: #103525 !important;
+        color: #fff !important;
+        break-after: auto;
+    }
+    .impact-card {
+        grid-template-columns: 1fr .8fr !important;
+        gap: 6mm !important;
+        padding: 7mm !important;
+    }
+    .impact-content h3 { font-size: 21pt !important; }
+    .impact-visual img { max-height: 75mm !important; object-fit: cover !important; }
+    .project-roadmap { margin-top: 7mm !important; }
+
+    /* Bug, cifras y gráfica */
+    .bug-card { padding: 7mm !important; }
+    .bug-card h3 { font-size: 19pt !important; }
+    .cifra-card { padding: 7mm !important; margin-bottom: 6mm !important; }
+    .cifra-number { font-size: 48pt !important; }
+    .chart-container { padding: 6mm !important; }
+    .chart-wrapper { height: 68mm !important; }
+    canvas { max-width: 100% !important; }
+
+    /* Calculadora: conservar resultados y campos, quitar solo la acción. */
+    .calculator-card { grid-template-columns: 1fr 0.9fr !important; }
+    .calculator-form, .calculator-results { padding: 6mm !important; }
+    .calculator-field { margin-bottom: 4mm !important; }
+    .calculator-field .uk-input,
+    .chart-container .uk-select {
+        min-height: 8mm !important;
+        height: auto !important;
+        padding: 1mm 2mm !important;
+        font-size: 8pt !important;
+    }
+
+    /* Historia, cierre y referencias */
+    .story-image img { max-height: 65mm !important; object-fit: cover !important; }
+    .campaign-feature { padding: 7mm !important; }
+    .campaign-main { padding: 7mm 0 !important; }
+    .campaign-main h3 { font-size: 47pt !important; }
+    .campaign-actions article { padding: 4mm !important; }
+    .campaign-footer a { display: none !important; }
+    .references, .references li { font-size: 8pt !important; line-height: 1.4 !important; }
+    .references li { margin-bottom: 2mm !important; }
+
+    /* Revelar contenido que normalmente aparece al hacer scroll. */
+    .reveal-on-scroll,
+    .reveal-on-scroll.is-revealed,
+    .track-reveal,
+    .track-reveal.is-visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        filter: none !important;
+        will-change: auto !important;
+    }
+
+    .article-quote,
+    .side-info { position: static !important; }
+
+    a {
+        color: inherit !important;
+        text-decoration: none !important;
+    }
+
+    img, svg, canvas {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    p, li { orphans: 3; widows: 3; }
+}
