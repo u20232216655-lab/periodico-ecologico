@@ -1221,3 +1221,54 @@ button:disabled { cursor: not-allowed; opacity: .6; }
     .impact-device .impact-icon { font-size: 3.8rem; }
     .impact-steps span { font-size: .6rem; }
 }
+
+
+/* Corrección definitiva del anclaje del menú: sin posicionamiento UIkit */
+.site-header,
+.site-header .navbar,
+.site-header .navbar > .uk-container,
+.site-header .uk-navbar {
+    overflow: visible;
+}
+.site-header .uk-navbar-right {
+    position: relative !important;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+    width: auto;
+    min-width: 44px;
+}
+.site-header .nav-dropdown {
+    position: absolute !important;
+    inset-block-start: calc(100% + 10px) !important;
+    inset-inline-start: auto !important;
+    inset-inline-end: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    float: none !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: min(340px, calc(100vw - 32px)) !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 32px) !important;
+    box-sizing: border-box;
+    display: none !important;
+}
+.site-header .nav-dropdown.is-open {
+    display: block !important;
+}
+@media (max-width: 640px) {
+    .site-header .nav-dropdown {
+        inset-block-start: calc(100% + 9px) !important;
+        inset-inline-end: 0 !important;
+        width: min(330px, calc(100vw - 28px)) !important;
+        max-width: calc(100vw - 28px) !important;
+    }
+}
+@media (max-width: 390px) {
+    .site-header .nav-dropdown {
+        width: min(290px, calc(100vw - 24px)) !important;
+        max-width: calc(100vw - 24px) !important;
+    }
+}
