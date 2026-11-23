@@ -270,69 +270,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
             data: {
                 labels,
-
                 datasets: [{
                     label: "Miles de toneladas",
                     data: values,
-
                     backgroundColor: "#174B35",
                     hoverBackgroundColor: "#C7E36A",
-
-                    borderRadius: 8,
+                    borderRadius: 7,
                     borderSkipped: false,
-
-                    maxBarThickness: 75
+                    maxBarThickness: 34,
+                    barPercentage: 0.72,
+                    categoryPercentage: 0.78
                 }]
             },
 
             options: {
+                indexAxis: "y",
                 responsive: true,
                 maintainAspectRatio: false,
-
-                animation: {
-                    duration: 650
-                },
+                animation: { duration: 650 },
 
                 plugins: {
-                    legend: {
-                        display: false
-                    },
-
+                    legend: { display: false },
                     tooltip: {
                         callbacks: {
-                            label: context => {
-                                return `${context.parsed.y} mil toneladas`;
-                            }
+                            label: context => `${context.parsed.x} mil toneladas`
                         }
                     }
                 },
 
                 scales: {
                     x: {
-                        grid: {
-                            display: false
-                        },
-
-                        ticks: {
-                            color: "#657168"
-                        }
-                    },
-
-                    y: {
                         beginAtZero: true,
-
                         title: {
                             display: true,
                             text: "Miles de toneladas",
-                            color: "#17271E"
+                            color: "#17271E",
+                            font: { family: "DM Sans", weight: "600" }
                         },
-
                         ticks: {
-                            color: "#68796D"
+                            color: "#68796D",
+                            precision: 0
                         },
-
-                        grid: {
-                            color: "#E3E9DF"
+                        grid: { color: "#E3E9E1" }
+                    },
+                    y: {
+                        grid: { display: false },
+                        ticks: {
+                            color: "#46574B",
+                            autoSkip: false,
+                            font: { family: "DM Sans", size: 12, weight: "600" },
+                            padding: 9
                         }
                     }
                 }
