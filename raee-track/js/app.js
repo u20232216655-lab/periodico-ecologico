@@ -103,7 +103,7 @@ function showView(name) {
   if (view === 'reportes') renderCharts();
   if (view === 'inventario') renderInventory();
   if (view === 'registrar' && $('device')) $('device').focus({ preventScroll: true });
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 }
 function renderStats() {
   $('statTotal').textContent = totalUnits();
@@ -146,7 +146,10 @@ function renderCharts() {
   const colors = ['#c5f36a', '#e5bd64', '#e47777', '#70b84b', '#72b8a0', '#a4a0dc', '#d59a66'];
   $('conditionFallback').style.display = devices.length ? 'none' : 'block';
   $('categoryFallback').style.display = devices.length ? 'none' : 'block';
-  if (conditionChart) conditionChart.destroy(); if (categoryChart) categoryChart.destroy();
+  if (conditionChart) conditionChart.destroy();
+  if (categoryChart) categoryChart.destroy();
+  conditionChart = null;
+  categoryChart = null;
   if (!devices.length) { $('conditionChart').style.display = 'none'; $('categoryChart').style.display = 'none'; return; }
   $('conditionChart').style.display = 'block'; $('categoryChart').style.display = 'block';
   conditionChart = new Chart($('conditionChart'), { type: 'doughnut', data: { labels: conditions, datasets: [{ data: conditionValues, backgroundColor: colors.slice(0, 3), borderColor: '#10251b', borderWidth: 4 }] }, options: { ...chartOptions(), cutout: '65%' } });
