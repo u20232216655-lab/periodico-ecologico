@@ -1459,3 +1459,24 @@ button:disabled { cursor: not-allowed; opacity: .6; }
         flex-basis: 44px;
     }
 }
+
+
+/* Gráfico RAEE: etiquetas legibles en barras horizontales */
+.chart-wrapper {
+    height: 430px;
+    min-height: 360px;
+    margin-top: 28px;
+}
+.chart-container .uk-select {
+    width: 100%;
+    max-width: 460px;
+}
+@media (max-width: 640px) {
+    .chart-wrapper {
+        height: 390px;
+        min-height: 340px;
+    }
+    .chart-container {
+        padding: 21px 17px;
+    }
+}
